@@ -11,15 +11,15 @@ const Universe = () => {
   ];
 
   return (
-    <div className="relative pt-32">
+    <div className="relative pt-24 sm:pt-28 md:pt-32">
       {/* Hero */}
-      <section className="story-hero min-h-[70vh]">
-        <div className="container mx-auto px-4 md:px-8 text-center">
+      <section className="story-hero min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh]">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 text-center">
           <GSAPReveal>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground mb-4 sm:mb-6">
               Digital <span className="text-primary">Universe</span>
             </h1>
-            <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
               We aim to build community and foster community collaboration internationally with our product. To achieve this, we have created a "Digital Universe" which contains 20 planets, each with a unique and fun backstory about its culture and the inhabitants.
             </p>
           </GSAPReveal>
@@ -27,25 +27,25 @@ const Universe = () => {
       </section>
 
       {/* Planets */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <GSAPReveal>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-16">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-foreground text-center mb-10 sm:mb-12 md:mb-16">
               Explore the <span className="text-primary">Planets</span>
             </h2>
           </GSAPReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {planets.map((planet, index) => (
               <GSAPReveal key={planet.name} delay={index * 80}>
-                <div className="feature-card h-full group cursor-pointer">
-                  <div className="w-20 h-20 rounded-full bg-primary/20 mb-6 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <span className="font-display text-2xl text-primary">{planet.name.charAt(0)}</span>
+                <div className="feature-card h-full group cursor-pointer p-4 sm:p-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary/20 mb-4 sm:mb-6 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <span className="font-display text-xl sm:text-2xl text-primary">{planet.name.charAt(0)}</span>
                   </div>
-                  <h3 className="font-display text-2xl text-foreground text-center mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-lg sm:text-xl md:text-2xl text-foreground text-center mb-2 sm:mb-4 group-hover:text-primary transition-colors">
                     {planet.name}
                   </h3>
-                  <p className="text-foreground/60 text-sm text-center">
+                  <p className="text-foreground/60 text-xs sm:text-sm text-center">
                     {planet.description}
                   </p>
                 </div>
@@ -56,17 +56,17 @@ const Universe = () => {
       </section>
 
       {/* Lore Section */}
-      <section className="py-24 section-gradient">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 section-gradient">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <GSAPReveal>
-              <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-foreground mb-4 sm:mb-6 md:mb-8">
                 The <span className="text-primary">Lore</span>
               </h2>
-              <p className="text-foreground/70 leading-relaxed mb-6">
+              <p className="text-foreground/70 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 The planets contain native strains of cannabis. Each world has developed its own unique varieties over millennia, influenced by their distinct environments, atmospheres, and the cosmic energies that flow through them.
               </p>
-              <p className="text-foreground/70 leading-relaxed">
+              <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
                 Purchasing a digital key by world gives you access to that planet's subset of strains to sell internationally subject to the law in each jurisdiction. The creatures that hail from those worlds are the digital keys and each creature, without using traits, is a unique design that has been hand drawn by an EA artist.
               </p>
             </GSAPReveal>

@@ -1,4 +1,8 @@
-import GSAPReveal from '@/components/GSAPReveal';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ARCHIVE-MISSING: Partner logos not available in Wayback Machine archive
 // Using text placeholders with original partner names
@@ -15,29 +19,64 @@ const partners = [
 ];
 
 const PartnersSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const partnersRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const partnersContainer = partnersRef.current;
+    if (!section || !partnersContainer) return;
+
+    const partnerItems = partnersContainer.querySelectorAll('.partner-item');
+    
+    gsap.fromTo(
+      partnerItems,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 85%',
+          once: true,
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <GSAPReveal className="py-16 border-t border-border/10 relative z-10 bg-background/50">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-10">
-          <p className="text-[10px] tracking-[0.4em] text-foreground/40 uppercase">Our Partners</p>
+    <section ref={sectionRef} className="py-12 md:py-16 border-t border-border/10 relative z-10 bg-background/50">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="text-center mb-8 md:mb-10">
+          <p className="text-[9px] md:text-[10px] tracking-[0.4em] text-foreground/40 uppercase">Our Partners</p>
         </div>
         
         {/* Partner logos row - Archive missing, using text placeholders */}
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+        <div 
+          ref={partnersRef}
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12"
+        >
           {partners.map((partner) => (
             <div 
               key={partner}
-              className="text-foreground/30 hover:text-foreground/50 transition-colors duration-300"
+              className="partner-item text-foreground/30 hover:text-foreground/50 transition-colors duration-300 px-2"
             >
               {/* ARCHIVE-MISSING: Logo placeholder */}
-              <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium">
+              <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium whitespace-nowrap">
                 {partner}
               </span>
             </div>
           ))}
         </div>
       </div>
-    </GSAPReveal>
+    </section>
   );
 };
 

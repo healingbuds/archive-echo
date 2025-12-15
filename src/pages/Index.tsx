@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import GSAPReveal from '@/components/GSAPReveal';
+import ParallaxPlanet from '@/components/ParallaxPlanet';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -230,10 +231,10 @@ const Index = () => {
 
       {/* Countdown Section */}
       <GSAPReveal className="py-20 relative z-10 overflow-visible">
-        {/* Decorative Planets */}
-        <img src={aromaticaCountdown} alt="" className="absolute -right-10 top-0 w-20 md:w-32 opacity-80 pointer-events-none" />
-        <img src={cannabiscusCountdown} alt="" className="absolute -left-12 top-1/4 w-24 md:w-40 opacity-70 pointer-events-none" />
-        <img src={fragrariaCountdown} alt="" className="absolute right-0 bottom-0 w-24 md:w-36 opacity-60 pointer-events-none" />
+        {/* Decorative Planets with Parallax */}
+        <ParallaxPlanet src={aromaticaCountdown} className="absolute -right-10 top-0 w-20 md:w-32 opacity-80" speed={0.3} rotate />
+        <ParallaxPlanet src={cannabiscusCountdown} className="absolute -left-12 top-1/4 w-24 md:w-40 opacity-70" speed={0.5} rotate rotateSpeed={-20} />
+        <ParallaxPlanet src={fragrariaCountdown} className="absolute right-0 bottom-0 w-24 md:w-36 opacity-60" speed={0.4} rotate />
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="countdown-card max-w-3xl mx-auto py-10 px-6 text-center">
@@ -326,9 +327,9 @@ const Index = () => {
 
       {/* Genetic Traceability & Spoofing Section */}
       <GSAPReveal className="py-16 relative z-10 overflow-visible">
-        {/* Planet decorations */}
-        <img src={sweetNirvana} alt="" className="absolute left-0 top-0 w-24 md:w-36 opacity-70 pointer-events-none" />
-        <img src={cannavariaWeb} alt="" className="absolute right-0 top-1/3 w-32 md:w-48 opacity-60 pointer-events-none" />
+        {/* Planet decorations with Parallax */}
+        <ParallaxPlanet src={sweetNirvana} className="absolute left-0 top-0 w-24 md:w-36 opacity-70" speed={0.6} rotate rotateSpeed={15} />
+        <ParallaxPlanet src={cannavariaWeb} className="absolute right-0 top-1/3 w-32 md:w-48 opacity-60" speed={0.35} rotate rotateSpeed={-25} />
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
@@ -370,10 +371,10 @@ const Index = () => {
                 alt="Citraflora Planet"
                 className="w-full max-w-[320px] mx-auto"
               />
-              {/* Decorative planets */}
-              <img src={bluePlanet} alt="" className="absolute -left-8 top-0 w-12 opacity-70" />
-              <img src={pinkPlanet} alt="" className="absolute -right-8 top-1/4 w-16 opacity-60" />
-              <img src={yellowPlanet} alt="" className="absolute left-1/4 -bottom-8 w-20 opacity-50" />
+              {/* Decorative planets with Parallax */}
+              <ParallaxPlanet src={bluePlanet} className="absolute -left-8 top-0 w-12 opacity-70" speed={0.7} rotate rotateSpeed={40} />
+              <ParallaxPlanet src={pinkPlanet} className="absolute -right-8 top-1/4 w-16 opacity-60" speed={0.45} rotate rotateSpeed={-35} />
+              <ParallaxPlanet src={yellowPlanet} className="absolute left-1/4 -bottom-8 w-20 opacity-50" speed={0.55} rotate rotateSpeed={25} />
             </div>
           </div>
         </div>

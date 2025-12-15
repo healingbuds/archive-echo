@@ -108,7 +108,7 @@ const Footer = () => {
 
           <div className="flex items-center text-xs text-foreground/40">
             <p>Website designed and developed by</p>
-            <span className="opacity-60 ml-1">
+            <span className="opacity-60">
               <img 
                 src={voodooLogo} 
                 alt="Voodoo" 

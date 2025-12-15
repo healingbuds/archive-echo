@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 import { toast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -28,14 +28,14 @@ const Contact = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               <span className="text-primary">Contact</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               Have questions? We'd love to hear from you.
             </p>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -43,7 +43,7 @@ const Contact = () => {
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-2xl mx-auto">
-            <ScrollReveal>
+            <GSAPReveal>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -102,10 +102,10 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
-            </ScrollReveal>
+            </GSAPReveal>
 
             {/* Social Links */}
-            <ScrollReveal delay={200}>
+            <GSAPReveal delay={200}>
               <div className="mt-16 text-center">
                 <h3 className="font-display text-xl text-foreground mb-6">Connect With Us</h3>
                 <div className="flex justify-center gap-6">
@@ -120,7 +120,7 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
           </div>
         </div>
       </section>

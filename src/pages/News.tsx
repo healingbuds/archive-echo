@@ -1,5 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
-import { Link } from 'react-router-dom';
+import GSAPReveal from '../components/GSAPReveal';
 
 const News = () => {
   const articles = [
@@ -51,12 +50,12 @@ const News = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <p className="text-xs tracking-[0.3em] text-primary uppercase mb-4">News / Updates</p>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               Dr. Green In The <span className="text-primary">Press</span>
             </h1>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -65,7 +64,7 @@ const News = () => {
         <div className="container mx-auto px-4 md:px-8">
           {/* Featured Article */}
           {articles.filter(a => a.featured).map((article) => (
-            <ScrollReveal key={article.title}>
+            <GSAPReveal key={article.title}>
               <div className="news-card mb-12 max-w-4xl mx-auto group">
                 <div className="aspect-video bg-gradient-to-br from-secondary/30 to-background" />
                 <div className="p-6 md:p-8">
@@ -82,13 +81,13 @@ const News = () => {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
           ))}
 
           {/* Articles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.filter(a => !a.featured).map((article, index) => (
-              <ScrollReveal key={article.title} delay={index * 80}>
+              <GSAPReveal key={article.title} delay={index * 80}>
                 <div className="news-card h-full group cursor-pointer">
                   <div className="aspect-video bg-gradient-to-br from-secondary/30 to-background" />
                   <div className="p-4">
@@ -107,7 +106,7 @@ const News = () => {
                     </div>
                   </div>
                 </div>
-              </ScrollReveal>
+              </GSAPReveal>
             ))}
           </div>
         </div>

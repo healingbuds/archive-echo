@@ -23,6 +23,9 @@ import Whitepaper from "./pages/Whitepaper";
 import Webinars from "./pages/Webinars";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -75,9 +78,9 @@ const App = () => {
                 <Route path="/webinars" element={<Webinars />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/terms-conditions" element={<NotFound />} />
-                <Route path="/privacy-policy" element={<NotFound />} />
-                <Route path="/cookie-policy" element={<NotFound />} />
+                <Route path="/terms-conditions" element={<TermsConditions />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

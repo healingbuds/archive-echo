@@ -70,11 +70,14 @@ const App = () => {
                 <Route path="/our-strains" element={<OurStrains />} />
                 <Route path="/universe" element={<Universe />} />
                 <Route path="/nfts" element={<NFTs />} />
-                <Route path="/process" element={<Process />} />
+                <Route path="/the-process" element={<Process />} />
                 <Route path="/whitepaper" element={<Whitepaper />} />
                 <Route path="/webinars" element={<Webinars />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/terms-conditions" element={<NotFound />} />
+                <Route path="/privacy-policy" element={<NotFound />} />
+                <Route path="/cookie-policy" element={<NotFound />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

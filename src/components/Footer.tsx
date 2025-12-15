@@ -15,12 +15,12 @@ import socialTelegram from '@/assets/social-telegram.svg';
 const pageLinks = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about-us' },
-  { label: 'Process', path: '/process' },
+  { label: 'Process', path: '/the-process' },
   { label: 'News', path: '/news' },
   { label: 'Contact', path: '/contact' },
-  { label: 'Terms & Conditions', path: '/terms' },
-  { label: 'Privacy Policy', path: '/privacy' },
-  { label: 'Cookie Policy', path: '/cookies' },
+  { label: 'Terms & Conditions', path: '/terms-conditions' },
+  { label: 'Privacy Policy', path: '/privacy-policy' },
+  { label: 'Cookie Policy', path: '/cookie-policy' },
 ];
 
 const socialLinks = [

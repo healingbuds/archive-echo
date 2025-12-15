@@ -1,7 +1,29 @@
+import { useState, useRef, useEffect } from 'react';
 import GSAPReveal from '../components/GSAPReveal';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+
+// Archive key card images
+import keySp2 from '@/assets/key-sp2.jpg';
+import keyGs13 from '@/assets/key-gs13.jpg';
+import keyP20 from '@/assets/key-p20.jpg';
+import keySp10 from '@/assets/key-sp10.png';
+import keyGs35 from '@/assets/key-gs35.png';
+import keyP72 from '@/assets/key-p72.jpg';
+
+const keyCards = [
+  { image: keySp2, name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145' },
+  { image: keyGs13, name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145' },
+  { image: keyP20, name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145' },
+  { image: keySp10, name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145' },
+  { image: keyGs35, name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145' },
+  { image: keyP72, name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145' },
+];
 
 const DigitalKeys = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   const keyTypes = [
     {
       name: 'Platinum Key',
@@ -26,6 +48,25 @@ const DigitalKeys = () => {
     },
   ];
 
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % keyCards.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animate slide changes
+  useEffect(() => {
+    if (carouselRef.current) {
+      gsap.to(carouselRef.current, {
+        x: -activeSlide * 100 + '%',
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+    }
+  }, [activeSlide]);
+
   return (
     <div className="relative pt-24 sm:pt-28 md:pt-32">
       {/* Hero */}
@@ -38,6 +79,64 @@ const DigitalKeys = () => {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
               Your gateway to the revolutionary world of legal cannabis trading through blockchain technology.
             </p>
+          </GSAPReveal>
+        </div>
+      </section>
+
+      {/* Key Card Carousel - Archive-exact */}
+      <section className="py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <GSAPReveal>
+            <div className="max-w-md mx-auto overflow-hidden rounded-xl">
+              <div 
+                ref={carouselRef}
+                className="flex"
+                style={{ width: `${keyCards.length * 100}%` }}
+              >
+                {keyCards.map((card, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative"
+                    style={{ width: `${100 / keyCards.length}%` }}
+                  >
+                    <img 
+                      src={card.image} 
+                      alt={card.name}
+                      className="w-full aspect-square object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-6">
+                      <div className="mb-3">
+                        <p className="text-[10px] text-foreground/50 uppercase tracking-wider">Name:</p>
+                        <p className="text-sm sm:text-base text-foreground">{card.name}</p>
+                      </div>
+                      <div className="flex gap-6">
+                        <div>
+                          <p className="text-[10px] text-foreground/50 uppercase tracking-wider">Token:</p>
+                          <p className="text-xs sm:text-sm text-foreground">{card.token}</p>
+                        </div>
+                        <div>
+                          <p className="text-[10px] text-foreground/50 uppercase tracking-wider">Quantity:</p>
+                          <p className="text-xs sm:text-sm text-foreground">{card.quantity}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Carousel indicators */}
+              <div className="flex justify-center gap-2 mt-4">
+                {keyCards.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveSlide(idx)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      idx === activeSlide ? 'bg-primary' : 'bg-foreground/30'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </GSAPReveal>
         </div>
       </section>

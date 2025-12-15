@@ -27,6 +27,7 @@ import capJpg from '@/assets/cap.jpg';
 import keyCardSp2 from '@/assets/key-card-sp2.jpg';
 import keyCardGs13 from '@/assets/key-card-gs13.jpg';
 import keyCardP20 from '@/assets/key-card-p20.jpg';
+import ytThumbnail from '@/assets/drgreen-yt-thumbnail.webp';
 
 // NFT slides - Archive authentic assets
 import nftArchive1 from '@/assets/nft-archive-1.png';
@@ -269,14 +270,24 @@ const Index = () => {
       {/* YouTube Preview Section */}
       <GSAPReveal className="py-12 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden bg-card border border-border/30">
-            <iframe
-              src="https://www.youtube.com/embed/2neQQJx6TgE?mute=1&rel=0"
-              title="Dr. Green Video"
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+          <div className="aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden bg-card border border-border/30 relative group cursor-pointer">
+            <img 
+              src={ytThumbnail}
+              alt="Dr. Green Video"
+              className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+              <a 
+                href="https://www.youtube.com/watch?v=2neQQJx6TgE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </GSAPReveal>

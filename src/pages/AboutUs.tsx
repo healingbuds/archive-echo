@@ -1,4 +1,5 @@
 import GSAPReveal from '../components/GSAPReveal';
+import ricardoImg from '../assets/ricardo.jpg';
 
 const AboutUs = () => {
   return (
@@ -13,6 +14,22 @@ const AboutUs = () => {
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               Dr. Green stands at the forefront of the cannabis revolution, combining cutting-edge blockchain technology with premium cannabis cultivation.
             </p>
+          </GSAPReveal>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 md:px-8">
+          <GSAPReveal>
+            <div className="max-w-6xl mx-auto">
+              <img 
+                src={ricardoImg} 
+                alt="Dr. Green Team" 
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+              />
+            </div>
           </GSAPReveal>
         </div>
       </section>

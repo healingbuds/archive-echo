@@ -148,22 +148,41 @@ const Index = () => {
                 Purchase a Dr. Green Digital Key to start trading cannabis worldwide
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="/assets/drgreen_whitepaper_2024.pdf" className="btn-primary text-xs px-6 py-2.5">
+                <Link to="/whitepaper" className="btn-primary text-xs px-6 py-2.5 uppercase tracking-wider">
                   Whitepaper
-                </a>
-                <a href="/assets/drgreen_overview_2024.pdf" className="btn-outline text-xs px-6 py-2.5">
+                </Link>
+                <Link to="/about-us" className="btn-outline text-xs px-6 py-2.5 uppercase tracking-wider">
                   Overview
-                </a>
+                </Link>
               </div>
             </div>
 
-            {/* Card Stack with Background */}
-            <div className="relative">
-              <img 
-                src={cardBackground} 
-                alt="" 
-                className="w-full max-w-[640px] mx-auto"
-              />
+            {/* Stacked Image Cards - Matching Archive Layout */}
+            <div className="relative h-[400px] md:h-[450px]">
+              {/* Top left card */}
+              <div className="absolute left-[10%] top-0 w-[180px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
+                <img 
+                  src={homeThumbnail} 
+                  alt="" 
+                  className="w-full h-[140px] md:h-[170px] object-cover grayscale"
+                />
+              </div>
+              {/* Middle center card */}
+              <div className="absolute left-[25%] top-[30%] w-[200px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 shadow-lg z-10">
+                <img 
+                  src={dgbanner} 
+                  alt="" 
+                  className="w-full h-[160px] md:h-[200px] object-cover grayscale"
+                />
+              </div>
+              {/* Right side card */}
+              <div className="absolute right-0 top-[15%] w-[160px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
+                <img 
+                  src={capJpg} 
+                  alt="" 
+                  className="w-full h-[280px] md:h-[340px] object-cover grayscale"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -36,11 +36,14 @@ const navItems = [
     path: '/universe',
     dropdown: [
       { label: 'Universe', path: '/universe' },
-      { label: 'Process', path: '/process' },
+      { label: 'The Process', path: '/the-process' },
       { label: 'Contact', path: '/contact' },
     ]
   },
 ];
+
+// External marketplace URL
+const MARKETPLACE_URL = 'https://marketplace.drgreennft.com';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -116,11 +119,16 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* CTA Button */}
+            {/* CTA Button - External marketplace link */}
             <div className="hidden lg:block">
-              <Link to="/digital-keys" className="btn-mint">
+              <a 
+                href={MARKETPLACE_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-mint"
+              >
                 Mint Key
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -166,13 +174,15 @@ const Header = () => {
           </nav>
           
           <div className="mt-8">
-            <Link 
-              to="/digital-keys" 
+            <a 
+              href={MARKETPLACE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary inline-block"
               onClick={() => setMobileMenuOpen(false)}
             >
               Mint Key
-            </Link>
+            </a>
           </div>
         </div>
       </div>

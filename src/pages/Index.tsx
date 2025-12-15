@@ -70,93 +70,107 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${homeThumbnail})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background" />
         
-        {/* Video Section */}
-        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-32">
+        {/* Hero Content */}
+        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-32 pb-16">
           <div className="max-w-5xl mx-auto">
-            <div className="video-container aspect-video mb-8 overflow-hidden">
+            <div className="video-container aspect-video mb-12 overflow-hidden group cursor-pointer">
               <div 
-                className="w-full h-full bg-cover bg-center flex items-center justify-center relative"
+                className="w-full h-full bg-cover bg-center flex items-center justify-center relative transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url(${homeThumbnail})` }}
               >
-                <div className="absolute inset-0 bg-background/30" />
+                <div className="absolute inset-0 bg-background/40 group-hover:bg-background/30 transition-colors duration-500" />
                 <div className="text-center relative z-10">
-                  <img src={videoLogo} alt="Dr. Green" className="w-32 h-32 mx-auto mb-4" />
-                  <span className="text-sm tracking-[0.4em] text-foreground/60 uppercase">Digital Key</span>
-                  <p className="text-foreground/80 mt-2">ON-DEMAND CANNABIS</p>
+                  <img src={videoLogo} alt="Dr. Green" className="w-40 h-40 mx-auto mb-6 drop-shadow-2xl" />
+                  <span className="text-xs md:text-sm tracking-[0.5em] text-foreground/70 uppercase font-medium">Digital Key</span>
+                  <p className="text-foreground/90 mt-3 text-lg md:text-xl tracking-wide font-light">ON-DEMAND CANNABIS</p>
+                  <div className="mt-8 w-16 h-16 mx-auto rounded-full border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary group-hover:scale-110 transition-all duration-300">
+                    <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-foreground/80 ml-1" />
+                  </div>
                 </div>
               </div>
             </div>
             
             {/* Scroll indicator */}
-            <div className="text-center opacity-0 animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-              <span className="text-xs tracking-[0.3em] text-foreground/40 uppercase">Scroll</span>
+            <div className="text-center opacity-0 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-[10px] tracking-[0.4em] text-foreground/40 uppercase">Scroll to explore</span>
+                <div className="w-px h-8 bg-gradient-to-b from-foreground/40 to-transparent animate-pulse" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Join the Revolution Section */}
-      <section className="py-24 section-gradient">
+      <section className="py-32 section-gradient">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
             <ScrollReveal>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
-                Join The <strong className="text-primary">Revolution</strong>
+              <p className="text-xs tracking-[0.4em] text-primary uppercase mb-4">The Future of Cannabis</p>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-tight">
+                Join The <span className="text-primary text-glow">Revolution</span>
               </h1>
-              <p className="text-lg text-foreground/70 mb-8">
-                Purchase a Dr. Green Digital Key to start trading cannabis worldwide
+              <p className="text-lg md:text-xl text-foreground/60 mb-10 leading-relaxed max-w-lg">
+                Purchase a Dr. Green Digital Key to start trading cannabis worldwide through our revolutionary blockchain platform.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#" className="btn-outline">
-                  Whitepaper
-                </a>
-                <a href="#" className="btn-outline">
-                  Overview
-                </a>
+                <Link to="/whitepaper" className="btn-primary">
+                  Read Whitepaper
+                </Link>
+                <Link to="/digital-keys" className="btn-outline">
+                  View Digital Keys
+                </Link>
               </div>
             </ScrollReveal>
 
-            {/* NFT Cards Carousel */}
+            {/* NFT Cards Stack */}
             <ScrollReveal delay={200}>
-              <div className="space-y-4">
-                {nftCards.map((card, index) => (
+              <div className="space-y-3">
+                {nftCards.slice(0, 3).map((card, index) => (
                   <div 
-                    key={card.name}
-                    className={`nft-card p-6 ${index === 0 ? 'glow-green' : ''}`}
+                    key={`${card.name}-${index}`}
+                    className={`nft-card p-5 transition-all duration-300 hover:translate-x-2 ${index === 0 ? 'glow-green border-primary/50' : ''}`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-5">
                       <div 
-                        className={`w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${
-                          card.tier === 'platinum' ? 'bg-platinum/20' :
-                          card.tier === 'gold' ? 'bg-gold/20' : 'bg-primary/20'
+                        className={`w-16 h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0 ${
+                          card.tier === 'platinum' ? 'bg-platinum/20 ring-1 ring-platinum/30' :
+                          card.tier === 'gold' ? 'bg-gold/20 ring-1 ring-gold/30' : 'bg-primary/20 ring-1 ring-primary/30'
                         }`}
                       >
                         <img 
                           src={card.image} 
                           alt={card.name}
-                          className="w-full h-full object-cover opacity-80"
+                          className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex-1">
-                        <p className="text-xs text-foreground/50 mb-1">Name:</p>
-                        <p className="font-medium text-foreground">{card.name}</p>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-display text-lg text-foreground truncate">{card.name}</p>
                         <div className="flex gap-6 mt-2">
                           <div>
-                            <p className="text-xs text-foreground/50">Token:</p>
-                            <p className="text-sm">{card.token}</p>
+                            <p className="text-[10px] uppercase tracking-wider text-foreground/40">Token</p>
+                            <p className="text-sm text-foreground/80">{card.token}</p>
                           </div>
                           <div>
-                            <p className="text-xs text-foreground/50">Quantity:</p>
-                            <p className="text-sm">{card.quantity}</p>
+                            <p className="text-[10px] uppercase tracking-wider text-foreground/40">Supply</p>
+                            <p className="text-sm text-foreground/80">{card.quantity}</p>
                           </div>
                         </div>
+                      </div>
+                      <div className="text-primary/60 hidden sm:block">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
                     </div>
                   </div>
                 ))}
+                <Link to="/digital-keys" className="block text-center text-sm text-primary/80 hover:text-primary transition-colors pt-4">
+                  View all Digital Keys →
+                </Link>
               </div>
             </ScrollReveal>
           </div>
@@ -164,140 +178,178 @@ const Index = () => {
       </section>
 
       {/* Countdown Section */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         {/* Planet decorations */}
-        <img src={planetAromatica} alt="" className="absolute -left-20 top-0 w-40 opacity-60 pointer-events-none" />
-        <img src={planetCannabiscus} alt="" className="absolute right-0 top-1/2 w-32 opacity-50 pointer-events-none" />
-        <img src={planetFragraria} alt="" className="absolute left-1/4 bottom-0 w-24 opacity-40 pointer-events-none" />
+        <img src={planetAromatica} alt="" className="absolute -left-20 top-10 w-48 opacity-40 pointer-events-none blur-[1px]" />
+        <img src={planetCannabiscus} alt="" className="absolute -right-10 top-1/3 w-40 opacity-30 pointer-events-none blur-[1px]" />
+        <img src={planetFragraria} alt="" className="absolute left-1/4 -bottom-10 w-32 opacity-25 pointer-events-none blur-[1px]" />
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
-            <div className="countdown-card max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-2">
-                PUBLIC MINT <span className="text-primary">LAUNCHES</span> IN:
+            <div className="countdown-card max-w-4xl mx-auto py-12 px-8">
+              <p className="text-xs tracking-[0.4em] text-primary/80 uppercase mb-4">Mint Status</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground mb-2">
+                Public Mint <span className="text-primary text-glow">Complete</span>
               </h2>
+              <p className="text-foreground/50 mb-8">The mint has ended. Trade on secondary markets.</p>
               
-              <div className="grid grid-cols-4 gap-4 my-8">
+              <div className="grid grid-cols-4 gap-4 md:gap-8 my-10">
                 {[
-                  { value: countdown.days, label: 'DAYS' },
-                  { value: countdown.hours, label: 'HOURS' },
-                  { value: countdown.minutes, label: 'MINUTES' },
-                  { value: countdown.seconds, label: 'SECONDS' },
+                  { value: countdown.days, label: 'Days' },
+                  { value: countdown.hours, label: 'Hours' },
+                  { value: countdown.minutes, label: 'Minutes' },
+                  { value: countdown.seconds, label: 'Seconds' },
                 ].map((item) => (
                   <div key={item.label} className="text-center">
-                    <p className="text-xs text-foreground/50 mb-2">{item.label}</p>
-                    <p className="font-display text-4xl md:text-5xl text-foreground">
+                    <p className="font-display text-4xl md:text-6xl text-foreground/20">
                       {String(item.value).padStart(2, '0')}
                     </p>
+                    <p className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/40 mt-2">{item.label}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-sm text-foreground/60">
-                Greenlist mint will be on <span className="text-primary">December 11th 4pm UTC</span>
-              </p>
+              <div className="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#" className="btn-outline text-sm">
+                  View on OpenSea
+                </a>
+                <Link to="/digital-keys" className="btn-primary text-sm">
+                  Learn More
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Digital Key Benefits */}
-      <section className="py-24">
+      <section className="py-32">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl text-center max-w-4xl mx-auto mb-16 leading-relaxed">
-              Purchasing our Digital Key unlocks the potential for substantial revenue growth from the flourishing cannabis market. You gain exclusive access to our sophisticated platform designed for the legal trade of cannabis.
-            </h2>
+            <div className="max-w-4xl mx-auto text-center mb-20">
+              <p className="text-xs tracking-[0.4em] text-primary uppercase mb-4">Why Digital Keys?</p>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground leading-relaxed">
+                Purchasing our Digital Key unlocks the potential for <span className="text-primary">substantial revenue growth</span> from the flourishing cannabis market.
+              </h2>
+              <p className="text-foreground/50 mt-6 text-lg">
+                Gain exclusive access to our sophisticated platform designed for the legal trade of cannabis.
+              </p>
+            </div>
           </ScrollReveal>
 
           {/* Our Digital Key */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
             <ScrollReveal>
-              <h3 className="font-display text-3xl md:text-4xl text-foreground mb-6">
-                Our <span className="text-primary">Digital Key</span>
+              <p className="text-xs tracking-[0.4em] text-primary/80 uppercase mb-3">The Technology</p>
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8">
+                Our <span className="text-primary text-glow">Digital Key</span>
               </h3>
-              <p className="text-foreground/70 leading-relaxed">
-                Dr. Green combines the Ethereum blockchain, NFT technology and physical cannabis into a solution that allows for accountable, traceable and verified cannabis transactions globally. Introducing the Dr. Green Digital Key. The cannabis industry lacks traceability, and this product allows regulators to safely open the doors to cannabis distribution. The digital key itself through the use of smart contracts provides our regulated license to the holder, empowering the digital key holder to trade cannabis legally anywhere that cannabis is accepted.
+              <p className="text-foreground/60 leading-relaxed text-lg mb-6">
+                Dr. Green combines the Ethereum blockchain, NFT technology and physical cannabis into a solution that allows for accountable, traceable and verified cannabis transactions globally.
+              </p>
+              <p className="text-foreground/50 leading-relaxed">
+                The digital key itself through the use of smart contracts provides our regulated license to the holder, empowering the digital key holder to trade cannabis legally anywhere that cannabis is accepted.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <div className="aspect-square rounded-lg overflow-hidden glow-green">
+              <div className="aspect-square rounded-lg overflow-hidden glow-green-intense group">
                 <img 
                   src={ethereumHq} 
                   alt="Dr. Green Digital Key NFT"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </ScrollReveal>
           </div>
 
           {/* Features Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-24">
+          <div className="grid md:grid-cols-2 gap-6 mb-24">
             <ScrollReveal>
-              <div className="feature-card h-full">
+              <div className="feature-card h-full p-8">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
                 <h4 className="font-display text-2xl text-foreground mb-4">
                   Genetic <span className="text-primary">Traceability</span>
                 </h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  At the seed stage of cultivation, we employ our own method of plant genome sequencing. The seeds genome is then encrypted into two key-pairs, a public key and a private key. The public key is written into a QR code that follows the seed through its lifecycle through to the end users packaging. Scanning this code will reveal its journey to the user and can be checked for authenticity against the private key we hold on our servers.
+                <p className="text-foreground/60 leading-relaxed">
+                  At the seed stage of cultivation, we employ plant genome sequencing. The genome is encrypted into key-pairs — a public key written into a QR code follows the seed through its lifecycle, verifiable against our private key.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="feature-card h-full">
+              <div className="feature-card h-full p-8">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
                 <h4 className="font-display text-2xl text-foreground mb-4">
                   Spoofing <span className="text-primary">Elimination</span>
                 </h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  Spoofing is the biggest problem in the cannabis industry. This is when illegal cannabis enters the legal supply chain. Currently there is no product offering to solve this problem. This new technology enables the cannabis to be verified, thus contributing to the elimination of black-market cannabis from the legal supply. Utilising the ETH block chain enables the decentralisation of our data.
+                <p className="text-foreground/60 leading-relaxed">
+                  Spoofing — when illegal cannabis enters the legal supply chain — is the industry's biggest problem. Our technology verifies authenticity, eliminating black-market cannabis from legal supply using decentralized ETH blockchain.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <div className="feature-card h-full md:col-span-2">
+              <div className="feature-card h-full md:col-span-2 p-8">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
                 <h4 className="font-display text-2xl text-foreground mb-4">
                   First-of-its-Kind <span className="text-primary">Integration</span>
                 </h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  Providing an ERC-721 token, we can build our cannabis licensing into the digital key and allow any holder to trade cannabis internationally, on chain, via an on-demand delivery platform. We and our partners are regulated, we actually deliver the cannabis to the consumer. The digital key holder never comes into contact with the product but is paid in ETH for creating those clients and orders. Traditionally, entering the cannabis market as an entrepreneur will cost upwards of $20M USD.
+                <p className="text-foreground/60 leading-relaxed max-w-3xl">
+                  Our ERC-721 token builds cannabis licensing into the digital key, allowing holders to trade internationally via our on-demand delivery platform. You never touch the product — just earn ETH for creating clients and orders. Traditional cannabis market entry costs upwards of $20M USD.
                 </p>
               </div>
             </ScrollReveal>
           </div>
 
           {/* Digital Universe & NFT Artwork */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             <ScrollReveal>
-              <div className="feature-card h-full">
+              <div className="feature-card h-full p-8">
                 <h4 className="font-display text-2xl text-foreground mb-4">
                   Digital <span className="text-primary">Universe</span>
                 </h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  We aim to build community and foster community collaboration internationally with our product. To achieve this, we have created a "Digital Universe" which can be found on our marketplace. This universe contains 20 planets, each with a unique and fun backstory about its culture and the inhabitants. The planets contain native strains of cannabis.
+                <p className="text-foreground/60 leading-relaxed">
+                  We've created a Digital Universe with 20 planets, each featuring unique backstories about culture and inhabitants. The planets contain native cannabis strains, fostering international community collaboration.
                 </p>
+                <Link to="/universe" className="inline-block mt-4 text-sm text-primary/80 hover:text-primary transition-colors">
+                  Explore the Universe →
+                </Link>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="feature-card h-full">
+              <div className="feature-card h-full p-8">
                 <h4 className="font-display text-2xl text-foreground mb-4">
                   NFT <span className="text-primary">Artwork</span>
                 </h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  Purchasing a digital key by world gives you access to that planets subset of strains to sell internationally subject to the law in each jurisdiction. The creatures that hail from those worlds are the digital keys and each creature, without using traits, is a unique design that has been hand drawn by an EA artist.
+                <p className="text-foreground/60 leading-relaxed">
+                  Each digital key represents a unique creature from our universe. Every design is hand-drawn by an EA artist — no traits, just pure unique artistry granting access to planet-specific strains.
                 </p>
+                <Link to="/nfts" className="inline-block mt-4 text-sm text-primary/80 hover:text-primary transition-colors">
+                  View Artwork →
+                </Link>
               </div>
             </ScrollReveal>
           </div>
 
           {/* NFT Character Showcase */}
           <ScrollReveal delay={200}>
-            <div className="mt-16 overflow-hidden">
-              <div className="flex gap-4 animate-scroll">
-                {[...nftCharacters, ...nftCharacters].map((char, i) => (
-                  <div key={i} className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden glow-green">
+            <div className="mt-20 overflow-hidden rounded-xl">
+              <div className="flex gap-6 animate-scroll py-4">
+                {[...nftCharacters, ...nftCharacters, ...nftCharacters].map((char, i) => (
+                  <div key={i} className="flex-shrink-0 w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden glow-green hover:glow-green-intense transition-all duration-300 hover:scale-105">
                     <img src={char} alt={`NFT Character ${(i % 5) + 1}`} className="w-full h-full object-cover" />
                   </div>
                 ))}
@@ -308,12 +360,12 @@ const Index = () => {
       </section>
 
       {/* News Section */}
-      <section className="py-24 section-gradient">
+      <section className="py-32 section-gradient">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.3em] text-primary uppercase mb-2">News / Updates</p>
-              <h3 className="font-display text-3xl md:text-4xl text-foreground">
+            <div className="text-center mb-16">
+              <p className="text-xs tracking-[0.4em] text-primary uppercase mb-4">Latest Updates</p>
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground">
                 Dr. Green In The Press
               </h3>
             </div>
@@ -323,25 +375,36 @@ const Index = () => {
             {newsItems.map((item, index) => (
               <ScrollReveal key={item.title} delay={index * 100}>
                 <Link to="/news" className="news-card block h-full group">
-                  <div className="aspect-video bg-gradient-to-br from-secondary/30 to-background" />
-                  <div className="p-4">
-                    <h4 className="font-display text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-foreground/50 line-clamp-3">
-                      {item.excerpt}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="aspect-video bg-gradient-to-br from-primary/5 via-secondary/20 to-background relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       {(item.categories || [item.category]).map((cat) => (
-                        <span key={cat} className="text-[10px] text-primary/80 bg-primary/10 px-2 py-1 rounded">
+                        <span key={cat} className="text-[10px] uppercase tracking-wider text-primary/90 bg-primary/10 px-2.5 py-1 rounded-full">
                           {cat}
                         </span>
                       ))}
                     </div>
+                    <h4 className="font-display text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-foreground/50 line-clamp-2 leading-relaxed">
+                      {item.excerpt}
+                    </p>
+                    <span className="inline-block mt-4 text-xs text-primary/70 group-hover:text-primary transition-colors">
+                      Read more →
+                    </span>
                   </div>
                 </Link>
               </ScrollReveal>
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/news" className="btn-outline">
+              View All News
+            </Link>
           </div>
         </div>
       </section>

@@ -182,11 +182,11 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Content */}
             <TextRotateReveal className="text-center lg:text-left">
-              <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-foreground mb-4 sm:mb-6 leading-[1.15]">
-                Join The <span className="text-primary">Revolution</span>
-              </h1>
+              <h3 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-foreground mb-4 sm:mb-6 leading-[1.15]">
+                Join the <span className="text-primary">Revolution.</span>
+              </h3>
               <p className="text-sm sm:text-base md:text-lg text-foreground/60 mb-6 sm:mb-8 leading-relaxed max-w-md mx-auto lg:mx-0">
-                Purchase a Dr. Green Digital Key to start trading cannabis worldwide
+                On-demand Cannabis Delivery With Dr. Green's Digital Key
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 <Link to="/whitepaper" className="btn-primary text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider">

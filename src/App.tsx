@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PartnersSection from "./components/PartnersSection";
 import AgeGate from "./components/AgeGate";
 import BookWebinarButton from "./components/BookWebinarButton";
 import MouseParticles from "./components/MouseParticles";
@@ -77,6 +78,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
+            <PartnersSection />
             <Footer />
           </div>
         </BrowserRouter>

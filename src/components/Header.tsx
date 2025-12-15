@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import drGreenLogo from '@/assets/drgreen-logo.svg';
+import drGreenLogo from '@/assets/logo-new.svg';
 
 const navItems = [
   { label: 'HOME', path: '/' },
@@ -83,14 +83,8 @@ const Header = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img src={drGreenLogo} alt="Dr. Green" className="w-12 h-12" />
-              <div className="flex flex-col items-start">
-                <span className="logo-script text-2xl md:text-3xl">Dr. Green</span>
-                <span className="text-[10px] tracking-[0.3em] text-foreground/60 uppercase mt-[-2px]">
-                  Digital Key
-                </span>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img src={drGreenLogo} alt="Dr. Green Digital Key" className="h-12 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}

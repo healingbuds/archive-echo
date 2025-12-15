@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import GSAPReveal from '@/components/GSAPReveal';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Archive assets
 import homeThumbnail from '@/assets/home-thumbnail.jpg';
@@ -58,10 +62,43 @@ import nftArchive33 from '@/assets/nft-archive-33.png';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Mint date has passed
     setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  }, []);
+
+  // Hero section entrance animation
+  useEffect(() => {
+    const heroContent = heroContentRef.current;
+    if (!heroContent) return;
+
+    const tl = gsap.timeline({ delay: 0.3 });
+    
+    // Animate hero content elements
+    tl.fromTo(
+      heroContent.querySelectorAll('.text-overlay-wrapper p'),
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out' }
+    )
+    .fromTo(
+      heroContent.querySelector('img'),
+      { opacity: 0, scale: 0.9 },
+      { opacity: 1, scale: 1, duration: 1, ease: 'power2.out' },
+      '-=0.4'
+    )
+    .fromTo(
+      heroContent.querySelector('.scroll-indicator'),
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+      '-=0.3'
+    );
+
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   const nftSlides = [
@@ -98,7 +135,7 @@ const Index = () => {
       </div>
 
       {/* Hero Section - Full Width Video */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Video */}
         <video 
           autoPlay 
@@ -116,7 +153,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4">
+        <div ref={heroContentRef} className="relative z-10 text-center px-4">
           <div className="text-overlay-wrapper mb-8">
             <p className="text-[10px] tracking-[0.5em] text-foreground/70 uppercase mb-1">DR. GREEN DIGITAL KEY</p>
             <p className="text-[10px] tracking-[0.5em] text-foreground/70 uppercase">ON-DEMAND CANNABIS</p>
@@ -163,27 +200,27 @@ const Index = () => {
             {/* Stacked Image Cards - Archive Key Cards */}
             <div className="relative h-[400px] md:h-[450px]">
               {/* Top left card - Platinum Key */}
-              <div className="absolute left-[10%] top-0 w-[180px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
+              <div className="animate-item absolute left-[10%] top-0 w-[180px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 shadow-lg hover:scale-105 transition-transform duration-300">
                 <img 
                   src={keyCardSp2} 
                   alt="Dr. Green Platinum Key" 
-                  className="w-full h-[140px] md:h-[170px] object-cover grayscale"
+                  className="w-full h-[140px] md:h-[170px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
               {/* Middle center card - Gold Key */}
-              <div className="absolute left-[25%] top-[30%] w-[200px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 shadow-lg z-10">
+              <div className="animate-item absolute left-[25%] top-[30%] w-[200px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 shadow-lg z-10 hover:scale-105 transition-transform duration-300">
                 <img 
                   src={keyCardGs13} 
                   alt="Dr. Green Gold Key" 
-                  className="w-full h-[160px] md:h-[200px] object-cover grayscale"
+                  className="w-full h-[160px] md:h-[200px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
               {/* Right side card - Digital Key */}
-              <div className="absolute right-0 top-[15%] w-[160px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
+              <div className="animate-item absolute right-0 top-[15%] w-[160px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 shadow-lg hover:scale-105 transition-transform duration-300">
                 <img 
                   src={keyCardP20} 
                   alt="Dr. Green Digital Key" 
-                  className="w-full h-[280px] md:h-[340px] object-cover grayscale"
+                  className="w-full h-[280px] md:h-[340px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
             </div>

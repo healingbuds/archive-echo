@@ -329,11 +329,33 @@ const Index = () => {
         <NFTCharacterSlider className="mt-8 sm:mt-12" />
       </GSAPReveal>
 
-      {/* Genetic Traceability & Spoofing Section */}
+      {/* Genetic Traceability & Spoofing Section - with planet videos */}
       <GSAPReveal className="py-10 sm:py-14 md:py-16 relative z-10 overflow-visible">
-        {/* Planet decorations with Parallax */}
-        <ParallaxPlanet src={sweetNirvana} className="absolute -left-4 sm:left-0 top-0 w-16 sm:w-24 md:w-36 opacity-70" speed={0.6} rotate rotateSpeed={15} />
-        <ParallaxPlanet src={cannavariaWeb} className="absolute -right-4 sm:right-0 top-1/3 w-20 sm:w-32 md:w-48 opacity-60" speed={0.35} rotate rotateSpeed={-25} />
+        {/* Planet video decorations matching archive layout */}
+        <div className="absolute -left-4 sm:left-4 top-0 w-20 sm:w-28 md:w-36">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={sweetNirvana}
+            className="w-full h-auto rounded-full opacity-70"
+          >
+            <source src="/videos/sweetnirvana.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute -right-4 sm:right-4 top-1/4 w-24 sm:w-36 md:w-52">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={cannavariaWeb}
+            className="w-full h-auto rounded-full opacity-60"
+          >
+            <source src="/videos/cannavaria.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">

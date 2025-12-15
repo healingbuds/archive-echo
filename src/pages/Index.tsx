@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import GSAPReveal, { TextRotateReveal } from '@/components/GSAPReveal';
 import ParallaxPlanet from '@/components/ParallaxPlanet';
+import NFTCharacterSlider from '@/components/NFTCharacterSlider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -313,16 +314,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* NFT Character Slider */}
-        <div className="mt-8 sm:mt-12 overflow-hidden">
-          <div className="flex animate-scroll">
-            {[...nftSlides, ...nftSlides].map((img, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[80px] sm:w-[120px] md:w-[180px] mx-1 sm:mx-1.5">
-                <img src={img} alt="" className="w-full h-auto" loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* NFT Character Slider - Archive-exact auto-scrolling marquee */}
+        <NFTCharacterSlider className="mt-8 sm:mt-12" />
       </GSAPReveal>
 
       {/* Genetic Traceability & Spoofing Section */}

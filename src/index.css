@@ -180,6 +180,54 @@
                 transform var(--duration-reveal) var(--ease-cinematic);
   }
 
+  /* Archive textRotation animation - rotateX reveal for headings */
+  .reveal-text h1,
+  .reveal-text h2,
+  .reveal-text h3 {
+    transform: rotateX(-90deg);
+    transform-origin: 0px 100px -50px;
+    opacity: 0;
+  }
+
+  .reveal-text.revealed h1,
+  .reveal-text.revealed h2,
+  .reveal-text.revealed h3 {
+    animation: textRotation 0.5s ease-in-out 0.2s 1 normal forwards;
+  }
+
+  @keyframes textRotation {
+    0% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+
+  /* Animate-text class from archive */
+  .animate-text h1,
+  .animate-text h2,
+  .animate-text h3,
+  .animate-text p,
+  .animate-text span {
+    transform: rotateX(-90deg);
+    transform-origin: 0px 100px -50px;
+    opacity: 0;
+  }
+
+  .animate-text.revealed h1,
+  .animate-text.revealed h2,
+  .animate-text.revealed h3 {
+    animation: textRotation 0.5s ease-in-out 0s 1 normal forwards;
+  }
+
+  .animate-text.revealed p,
+  .animate-text.revealed span {
+    animation: textRotation 0.5s ease-in-out 0.15s 1 normal forwards;
+  }
+
   /* Section styling */
   .section-dark {
     @apply bg-background;

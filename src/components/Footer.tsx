@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import footerLogo from '@/assets/drgreen-logo-footer.svg';
 
 const pageLinks = [
   { label: 'HOME', path: '/' },
@@ -14,15 +15,16 @@ const pageLinks = [
 
 const Footer = () => {
   return (
-    <footer className="footer py-16 relative z-10">
+    <footer className="bg-black py-16 relative z-10 border-t border-border/10">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Logo */}
           <div className="flex flex-col items-center md:items-start">
-            <span className="logo-script text-4xl md:text-5xl">Dr. Green</span>
-            <span className="text-[10px] tracking-[0.4em] text-foreground/50 uppercase mt-1">
-              Digital Key
-            </span>
+            <img 
+              src={footerLogo} 
+              alt="Dr. Green Digital Key" 
+              className="h-16 md:h-20 w-auto"
+            />
           </div>
 
           {/* Pages */}

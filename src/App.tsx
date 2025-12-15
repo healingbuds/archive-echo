@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AgeGate from "./components/AgeGate";
 import BookWebinarButton from "./components/BookWebinarButton";
+import MouseParticles from "./components/MouseParticles";
 import Particles from "./components/Particles";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
@@ -56,6 +57,7 @@ const App = () => {
           
           <div className={`min-h-screen bg-background ${!ageVerified ? 'overflow-hidden h-screen' : ''}`}>
             <Particles />
+            <MouseParticles particleCount={40} sensitivity={0.08} />
             <Header />
             <BookWebinarButton />
             <main>

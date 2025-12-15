@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['DM Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Figtree', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        body: ['Figtree', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

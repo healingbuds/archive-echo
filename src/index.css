@@ -1,4 +1,4 @@
-/* Archive-matching typography: DM Sans for body (Gilroy-like), Cormorant Garamond for display */
+/* Archive-matching typography: Figtree (exact match from archive CSS) */
 
 @tailwind base;
 @tailwind components;
@@ -46,9 +46,9 @@
     --gold: 45 100% 50%;
     --platinum: 0 0% 85%;
 
-    /* Typography - Archive matching */
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Archive exact match: Figtree */
+    --font-display: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Animation timing */
     --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);

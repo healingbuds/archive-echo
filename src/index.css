@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dr. Green Dark Theme - Matches Archive */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Dr. Green emerald accent */
+    --primary: 161 100% 42%;
+    --primary-foreground: 0 0% 0%;
+
+    /* Darker green for secondary */
+    --secondary: 161 60% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 161 100% 42%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 161 100% 42%;
+
+    --radius: 0.5rem;
+
+    /* Custom Dr. Green Variables */
+    --green-glow: 161 100% 42%;
+    --green-bright: 161 100% 50%;
+    --green-dark: 161 60% 20%;
+    --gold: 45 100% 50%;
+    --platinum: 0 0% 85%;
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Montserrat', Arial, sans-serif;
+
+    /* Animation timing */
+    --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-reveal: 1s;
+    --duration-fade: 0.6s;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  /* Age Gate Modal */
+  .age-gate-overlay {
+    @apply fixed inset-0 z-[100] flex items-center justify-center;
+    background: radial-gradient(ellipse at center, hsl(161 40% 8% / 0.95) 0%, hsl(0 0% 0% / 0.98) 100%);
+    backdrop-filter: blur(20px);
+  }
+
+  .age-gate-card {
+    @apply relative p-8 md:p-12 rounded-lg text-center max-w-md mx-4;
+    background: hsl(0 0% 2%);
+    border: 2px solid hsl(var(--primary));
+    box-shadow: 
+      0 0 60px hsl(var(--primary) / 0.3),
+      0 0 120px hsl(var(--primary) / 0.15),
+      inset 0 1px 0 hsl(var(--primary) / 0.2);
+  }
+
+  /* Header styles */
+  .header {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500;
+  }
+
+  .header-solid {
+    @apply bg-background/95 backdrop-blur-md border-b border-border/50;
+  }
+
+  .header-transparent {
+    @apply bg-transparent;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply relative text-sm tracking-[0.2em] uppercase text-foreground/80 hover:text-primary transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 transition-transform duration-300 origin-right;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply px-8 py-3 bg-primary text-primary-foreground font-medium tracking-wider uppercase text-sm;
+    @apply border border-primary rounded transition-all duration-300;
+    @apply hover:bg-transparent hover:text-primary hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)];
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 bg-transparent text-foreground font-medium tracking-wider uppercase text-sm;
+    @apply border border-primary/60 rounded transition-all duration-300;
+    @apply hover:border-primary hover:text-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)];
+  }
+
+  .btn-mint {
+    @apply px-6 py-2.5 bg-transparent text-foreground font-medium tracking-wider uppercase text-sm;
+    @apply border border-foreground rounded transition-all duration-300;
+    @apply hover:bg-foreground hover:text-background;
+  }
+
+  /* Hero section */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+  }
+
+  /* Scroll reveal animation classes */
+  .reveal {
+    @apply opacity-0;
+    transform: translateY(30px);
+  }
+
+  .reveal.active {
+    @apply opacity-100;
+    transform: translateY(0);
+    transition: opacity var(--duration-reveal) var(--ease-cinematic),
+                transform var(--duration-reveal) var(--ease-cinematic);
+  }
+
+  /* Section styling */
+  .section-dark {
+    @apply bg-background;
+  }
+
+  .section-gradient {
+    background: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(161 30% 3%) 50%, hsl(0 0% 0%) 100%);
+  }
+
+  /* Cards */
+  .nft-card {
+    @apply relative rounded-lg overflow-hidden bg-card border border-border/30;
+    @apply transition-all duration-500;
+  }
+
+  .nft-card:hover {
+    @apply border-primary/50;
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  /* Green glow effects */
+  .glow-green {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-green-intense {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.3),
+      0 0 80px hsl(var(--primary) / 0.2);
+  }
+
+  /* Text glow */
+  .text-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+
+  /* Particles container */
+  .particles-container {
+    @apply fixed inset-0 pointer-events-none z-0;
+  }
+
+  .particle {
+    @apply absolute rounded-full bg-foreground/30;
+    animation: float 20s infinite linear;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(20px);
+      opacity: 0;
+    }
+  }
+
+  /* Logo script font style */
+  .logo-script {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(135deg, hsl(180 30% 60%) 0%, hsl(180 40% 80%) 50%, hsl(180 30% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    @apply absolute top-full left-0 mt-2 py-2 min-w-48 bg-card/95 backdrop-blur-md;
+    @apply border border-border/50 rounded-md shadow-xl opacity-0 invisible;
+    @apply transition-all duration-300 transform -translate-y-2;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    @apply opacity-100 visible translate-y-0;
+  }
+
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/10;
+    @apply transition-colors duration-200;
+  }
+
+  /* Video container */
+  .video-container {
+    @apply relative rounded-lg overflow-hidden;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 60px hsl(var(--primary) / 0.3);
+  }
+
+  /* Side floating elements */
+  .side-cta {
+    @apply fixed right-0 top-1/2 -translate-y-1/2 z-40;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* News card */
+  .news-card {
+    @apply relative overflow-hidden rounded-lg bg-card border border-border/30;
+    @apply transition-all duration-500;
+  }
+
+  .news-card:hover {
+    @apply border-primary/50;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.5);
+  }
+
+  /* Countdown styles */
+  .countdown-card {
+    @apply relative p-8 rounded-lg text-center;
+    background: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(161 30% 5%) 100%);
+    border: 1px solid hsl(var(--primary) / 0.3);
+  }
+
+  /* Partners/testimonials */
+  .partner-logo {
+    @apply opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0;
+  }
+
+  /* Footer */
+  .footer {
+    @apply relative py-16 bg-gradient-to-t from-secondary/20 to-background;
+    border-top: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    @apply fixed inset-0 z-[60] backdrop-blur-md;
+    @apply transform translate-x-full transition-transform duration-500;
+    background: hsl(0 0% 0% / 0.98);
+  }
+
+  .mobile-menu.open {
+    @apply translate-x-0;
+  }
+
+  /* Story page specific */
+  .story-hero {
+    @apply relative min-h-[60vh] flex items-center justify-center;
+    background: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(161 20% 3%) 100%);
+  }
+
+  .story-section {
+    @apply relative py-24 overflow-hidden;
+  }
+
+  .story-content {
+    @apply max-w-4xl mx-auto;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    @apply p-6 rounded-lg bg-card/50 border border-border/30;
+    @apply transition-all duration-500;
+  }
+
+  .feature-card:hover {
+    @apply border-primary/40 bg-card;
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.1);
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient-green {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--green-bright)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animate delay utilities */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}

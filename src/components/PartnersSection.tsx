@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ARCHIVE-MISSING: Partner logos not available in Wayback Machine archive
-// Using text placeholders with original partner names
+// ARCHIVE-MISSING: Partner logos not found in Wayback Machine archive (tested multiple URL patterns).
+// The original drgreennft.com partner section logos were not captured. Using text placeholders with original partner names.
 const partners = [
   'QANALI',
   'CANNABIS BUSINESS AWARDS',

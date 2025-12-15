@@ -32,6 +32,26 @@ import nftArchive9 from '@/assets/nft-archive-9.png';
 import nftArchive10 from '@/assets/nft-archive-10.png';
 import nftArchive11 from '@/assets/nft-archive-11.png';
 import nftArchive12 from '@/assets/nft-archive-12.png';
+import nftArchive13 from '@/assets/nft-archive-13.png';
+import nftArchive14 from '@/assets/nft-archive-14.png';
+import nftArchive15 from '@/assets/nft-archive-15.png';
+import nftArchive16 from '@/assets/nft-archive-16.png';
+import nftArchive17 from '@/assets/nft-archive-17.png';
+import nftArchive18 from '@/assets/nft-archive-18.png';
+import nftArchive19 from '@/assets/nft-archive-19.png';
+import nftArchive20 from '@/assets/nft-archive-20.png';
+import nftArchive21 from '@/assets/nft-archive-21.png';
+import nftArchive22 from '@/assets/nft-archive-22.png';
+import nftArchive24 from '@/assets/nft-archive-24.png';
+import nftArchive25 from '@/assets/nft-archive-25.png';
+import nftArchive26 from '@/assets/nft-archive-26.png';
+import nftArchive27 from '@/assets/nft-archive-27.png';
+import nftArchive28 from '@/assets/nft-archive-28.png';
+import nftArchive29 from '@/assets/nft-archive-29.png';
+import nftArchive30 from '@/assets/nft-archive-30.png';
+import nftArchive31 from '@/assets/nft-archive-31.png';
+import nftArchive32 from '@/assets/nft-archive-32.png';
+import nftArchive33 from '@/assets/nft-archive-33.png';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -41,7 +61,14 @@ const Index = () => {
     setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   }, []);
 
-  const nftSlides = [nftArchive1, nftArchive2, nftArchive3, nftArchive4, nftArchive5, nftArchive6, nftArchive7, nftArchive8, nftArchive9, nftArchive10, nftArchive11, nftArchive12];
+  const nftSlides = [
+    nftArchive1, nftArchive2, nftArchive3, nftArchive4, nftArchive5, nftArchive6,
+    nftArchive7, nftArchive8, nftArchive9, nftArchive10, nftArchive11, nftArchive12,
+    nftArchive13, nftArchive14, nftArchive15, nftArchive16, nftArchive17, nftArchive18,
+    nftArchive19, nftArchive20, nftArchive21, nftArchive22, nftArchive24, nftArchive25,
+    nftArchive26, nftArchive27, nftArchive28, nftArchive29, nftArchive30, nftArchive31,
+    nftArchive32, nftArchive33
+  ];
 
   const newsItems = [
     {

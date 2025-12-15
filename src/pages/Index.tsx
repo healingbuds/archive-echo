@@ -6,18 +6,18 @@ import ethereumHq from '@/assets/ethereum-hq-archive.jpg';
 import keyPlatinum from '@/assets/key-platinum.jpg';
 import keyGold from '@/assets/key-gold.jpg';
 import keyDigital from '@/assets/key-digital.jpg';
-import keyPlatinum2 from '@/assets/key-platinum-2.png';
-import keyGold2 from '@/assets/key-gold-2.png';
-import keyDigital2 from '@/assets/key-digital-2.jpg';
 import nftChar1 from '@/assets/nft-char-1.png';
 import nftChar2 from '@/assets/nft-char-2.png';
 import nftChar3 from '@/assets/nft-char-3.png';
 import nftChar4 from '@/assets/nft-char-4.png';
 import nftChar5 from '@/assets/nft-char-5.png';
-import videoLogo from '@/assets/video-logo.svg';
-import planetAromatica from '@/assets/planet-aromatica-archive.png';
-import planetCannabiscus from '@/assets/planet-cannabiscus-archive.png';
-import planetFragraria from '@/assets/planet-fragraria-archive.png';
+import videoLogo from '@/assets/video-logo-new.svg';
+import heroForeground from '@/assets/hero-foreground.png';
+import spaceBg from '@/assets/space-bg.jpg';
+import planetViridescia from '@/assets/planet-viridescia.svg';
+import planetDulceterra from '@/assets/planet-dulceterra.svg';
+import planet4 from '@/assets/planet-4.svg';
+import planet5 from '@/assets/planet-5.svg';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -31,9 +31,6 @@ const Index = () => {
     { name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145', tier: 'platinum', image: keyPlatinum },
     { name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145', tier: 'gold', image: keyGold },
     { name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145', tier: 'standard', image: keyDigital },
-    { name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145', tier: 'platinum', image: keyPlatinum2 },
-    { name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145', tier: 'gold', image: keyGold2 },
-    { name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145', tier: 'standard', image: keyDigital2 },
   ];
 
   const nftCharacters = [nftChar1, nftChar2, nftChar3, nftChar4, nftChar5];
@@ -180,9 +177,9 @@ const Index = () => {
       {/* Countdown Section */}
       <section className="py-24 relative overflow-hidden">
         {/* Planet decorations */}
-        <img src={planetAromatica} alt="" className="absolute -left-20 top-10 w-48 opacity-40 pointer-events-none blur-[1px]" />
-        <img src={planetCannabiscus} alt="" className="absolute -right-10 top-1/3 w-40 opacity-30 pointer-events-none blur-[1px]" />
-        <img src={planetFragraria} alt="" className="absolute left-1/4 -bottom-10 w-32 opacity-25 pointer-events-none blur-[1px]" />
+        <img src={planetViridescia} alt="" className="absolute -left-20 top-10 w-48 opacity-40 pointer-events-none" />
+        <img src={planetDulceterra} alt="" className="absolute -right-10 top-1/3 w-40 opacity-30 pointer-events-none" />
+        <img src={planet4} alt="" className="absolute left-1/4 -bottom-10 w-32 opacity-25 pointer-events-none" />
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>

@@ -106,9 +106,9 @@ const Footer = () => {
             2024 © Dr. Green NFT
           </p>
 
-          <div className="flex items-center gap-2 text-xs text-foreground/40">
+          <div className="flex items-center text-xs text-foreground/40">
             <p>Website designed and developed by</p>
-            <span className="opacity-60">
+            <span className="opacity-60 ml-1">
               <img 
                 src={voodooLogo} 
                 alt="Voodoo" 

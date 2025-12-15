@@ -2,17 +2,22 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import homeThumbnail from '@/assets/home-thumbnail.jpg';
-import ethereumHq from '@/assets/ethereum-hq.jpg';
-import nftPlatinum1 from '@/assets/nft-platinum-1.jpg';
-import nftGold1 from '@/assets/nft-gold-1.jpg';
-import nftDigital1 from '@/assets/nft-digital-1.jpg';
-import nftCard1 from '@/assets/nft-card-1.png';
-import nftCard2 from '@/assets/nft-card-2.png';
-import nftCard3 from '@/assets/nft-card-3.png';
-import nftCard4 from '@/assets/nft-card-4.png';
-import nftCard5 from '@/assets/nft-card-5.png';
-import nftCard6 from '@/assets/nft-card-6.png';
-import drGreenLogo from '@/assets/drgreen-logo.svg';
+import ethereumHq from '@/assets/ethereum-hq-archive.jpg';
+import keyPlatinum from '@/assets/key-platinum.jpg';
+import keyGold from '@/assets/key-gold.jpg';
+import keyDigital from '@/assets/key-digital.jpg';
+import keyPlatinum2 from '@/assets/key-platinum-2.png';
+import keyGold2 from '@/assets/key-gold-2.png';
+import keyDigital2 from '@/assets/key-digital-2.jpg';
+import nftChar1 from '@/assets/nft-char-1.png';
+import nftChar2 from '@/assets/nft-char-2.png';
+import nftChar3 from '@/assets/nft-char-3.png';
+import nftChar4 from '@/assets/nft-char-4.png';
+import nftChar5 from '@/assets/nft-char-5.png';
+import videoLogo from '@/assets/video-logo.svg';
+import planetAromatica from '@/assets/planet-aromatica-archive.png';
+import planetCannabiscus from '@/assets/planet-cannabiscus-archive.png';
+import planetFragraria from '@/assets/planet-fragraria-archive.png';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -21,14 +26,17 @@ const Index = () => {
     // Static countdown display (mint date has passed)
     setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   }, []);
-
-  const nftImages = [nftPlatinum1, nftGold1, nftDigital1];
   
   const nftCards = [
-    { name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145', tier: 'platinum', image: nftPlatinum1 },
-    { name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145', tier: 'gold', image: nftGold1 },
-    { name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145', tier: 'standard', image: nftDigital1 },
+    { name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145', tier: 'platinum', image: keyPlatinum },
+    { name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145', tier: 'gold', image: keyGold },
+    { name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145', tier: 'standard', image: keyDigital },
+    { name: 'Dr. Green Platinum Key', token: 'ERC-721', quantity: '5,145', tier: 'platinum', image: keyPlatinum2 },
+    { name: 'Dr. Green Gold Key', token: 'ERC-721', quantity: '5,145', tier: 'gold', image: keyGold2 },
+    { name: 'Dr. Green Digital Key', token: 'ERC-721', quantity: '5,145', tier: 'standard', image: keyDigital2 },
   ];
+
+  const nftCharacters = [nftChar1, nftChar2, nftChar3, nftChar4, nftChar5];
 
   const newsItems = [
     {
@@ -74,7 +82,7 @@ const Index = () => {
               >
                 <div className="absolute inset-0 bg-background/30" />
                 <div className="text-center relative z-10">
-                  <img src={drGreenLogo} alt="Dr. Green" className="w-32 h-32 mx-auto mb-4" />
+                  <img src={videoLogo} alt="Dr. Green" className="w-32 h-32 mx-auto mb-4" />
                   <span className="text-sm tracking-[0.4em] text-foreground/60 uppercase">Digital Key</span>
                   <p className="text-foreground/80 mt-2">ON-DEMAND CANNABIS</p>
                 </div>
@@ -157,7 +165,12 @@ const Index = () => {
 
       {/* Countdown Section */}
       <section className="py-16 relative overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8">
+        {/* Planet decorations */}
+        <img src={planetAromatica} alt="" className="absolute -left-20 top-0 w-40 opacity-60 pointer-events-none" />
+        <img src={planetCannabiscus} alt="" className="absolute right-0 top-1/2 w-32 opacity-50 pointer-events-none" />
+        <img src={planetFragraria} alt="" className="absolute left-1/4 bottom-0 w-24 opacity-40 pointer-events-none" />
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <div className="countdown-card max-w-3xl mx-auto">
               <h2 className="font-display text-2xl md:text-3xl text-foreground mb-2">
@@ -278,6 +291,19 @@ const Index = () => {
               </div>
             </ScrollReveal>
           </div>
+
+          {/* NFT Character Showcase */}
+          <ScrollReveal delay={200}>
+            <div className="mt-16 overflow-hidden">
+              <div className="flex gap-4 animate-scroll">
+                {[...nftCharacters, ...nftCharacters].map((char, i) => (
+                  <div key={i} className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden glow-green">
+                    <img src={char} alt={`NFT Character ${(i % 5) + 1}`} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

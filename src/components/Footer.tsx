@@ -108,18 +108,13 @@ const Footer = () => {
 
           <div className="flex items-center gap-2 text-xs text-foreground/40">
             <p>Website designed and developed by</p>
-            <a 
-              href="https://voodoo.agency" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="opacity-60 hover:opacity-100 transition-opacity"
-            >
+            <span className="opacity-60">
               <img 
                 src={voodooLogo} 
-                alt="Voodoo Agency" 
+                alt="Voodoo" 
                 className="h-5 w-auto"
               />
-            </a>
+            </span>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 import { Link } from 'react-router-dom';
 
 const Webinars = () => {
@@ -30,7 +30,7 @@ const Webinars = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               <span className="text-primary">Webinars</span>
             </h1>
@@ -40,7 +40,7 @@ const Webinars = () => {
             <Link to="/contact" className="btn-primary inline-block">
               Book a Webinar
             </Link>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -49,7 +49,7 @@ const Webinars = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
             {webinars.map((webinar, index) => (
-              <ScrollReveal key={webinar.title} delay={index * 100}>
+              <GSAPReveal key={webinar.title} delay={index * 100}>
                 <div className="feature-card hover:border-primary/50 transition-colors cursor-pointer">
                   <div className="flex flex-col md:flex-row md:items-center gap-4">
                     <div className="flex-1">
@@ -62,7 +62,7 @@ const Webinars = () => {
                     </div>
                   </div>
                 </div>
-              </ScrollReveal>
+              </GSAPReveal>
             ))}
           </div>
         </div>

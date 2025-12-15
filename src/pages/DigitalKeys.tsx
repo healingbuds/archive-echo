@@ -1,4 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 import { Link } from 'react-router-dom';
 
 const DigitalKeys = () => {
@@ -31,14 +31,14 @@ const DigitalKeys = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               Digital <span className="text-primary">Keys</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               Your gateway to the revolutionary world of legal cannabis trading through blockchain technology.
             </p>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -47,7 +47,7 @@ const DigitalKeys = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {keyTypes.map((key, index) => (
-              <ScrollReveal key={key.name} delay={index * 100}>
+              <GSAPReveal key={key.name} delay={index * 100}>
                 <div className={`nft-card p-8 h-full ${
                   key.tier === 'platinum' ? 'border-platinum/40' :
                   key.tier === 'gold' ? 'border-gold/40' : 'border-primary/40'
@@ -83,7 +83,7 @@ const DigitalKeys = () => {
                     ))}
                   </ul>
                 </div>
-              </ScrollReveal>
+              </GSAPReveal>
             ))}
           </div>
         </div>
@@ -92,41 +92,41 @@ const DigitalKeys = () => {
       {/* How It Works */}
       <section className="py-24 section-gradient">
         <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal>
+          <GSAPReveal>
             <div className="text-center mb-16">
               <h2 className="font-display text-3xl md:text-4xl text-foreground">
                 How It <span className="text-primary">Works</span>
               </h2>
             </div>
-          </ScrollReveal>
+          </GSAPReveal>
 
           <div className="max-w-4xl mx-auto space-y-8">
-            <ScrollReveal>
+            <GSAPReveal>
               <div className="feature-card">
                 <h3 className="font-display text-xl text-foreground mb-4">1. Mint Your Digital Key</h3>
                 <p className="text-foreground/70 text-sm">
                   Choose your planet and mint your Digital Key NFT. Each key is an ERC-721 token on the Ethereum blockchain.
                 </p>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
 
-            <ScrollReveal delay={100}>
+            <GSAPReveal delay={100}>
               <div className="feature-card">
                 <h3 className="font-display text-xl text-foreground mb-4">2. Access Your Platform</h3>
                 <p className="text-foreground/70 text-sm">
                   Your Digital Key unlocks access to our trading platform where you can legally trade cannabis through our regulated network.
                 </p>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
 
-            <ScrollReveal delay={200}>
+            <GSAPReveal delay={200}>
               <div className="feature-card">
                 <h3 className="font-display text-xl text-foreground mb-4">3. Build Your Business</h3>
                 <p className="text-foreground/70 text-sm">
                   Create clients, process orders, and earn ETH. The Digital Key holder never comes into contact with the product but is paid for creating clients and orders.
                 </p>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@ const DigitalKeys = () => {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
               Ready to Join the <span className="text-primary">Revolution</span>?
             </h2>
@@ -144,7 +144,7 @@ const DigitalKeys = () => {
             <Link to="/our-story" className="btn-primary">
               Learn More
             </Link>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
     </div>

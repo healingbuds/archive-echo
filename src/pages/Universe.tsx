@@ -1,4 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 
 const Universe = () => {
   const planets = [
@@ -15,29 +15,29 @@ const Universe = () => {
       {/* Hero */}
       <section className="story-hero min-h-[70vh]">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               Digital <span className="text-primary">Universe</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               We aim to build community and foster community collaboration internationally with our product. To achieve this, we have created a "Digital Universe" which contains 20 planets, each with a unique and fun backstory about its culture and the inhabitants.
             </p>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
       {/* Planets */}
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal>
+          <GSAPReveal>
             <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-16">
               Explore the <span className="text-primary">Planets</span>
             </h2>
-          </ScrollReveal>
+          </GSAPReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {planets.map((planet, index) => (
-              <ScrollReveal key={planet.name} delay={index * 80}>
+              <GSAPReveal key={planet.name} delay={index * 80}>
                 <div className="feature-card h-full group cursor-pointer">
                   <div className="w-20 h-20 rounded-full bg-primary/20 mb-6 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <span className="font-display text-2xl text-primary">{planet.name.charAt(0)}</span>
@@ -49,7 +49,7 @@ const Universe = () => {
                     {planet.description}
                   </p>
                 </div>
-              </ScrollReveal>
+              </GSAPReveal>
             ))}
           </div>
         </div>
@@ -59,7 +59,7 @@ const Universe = () => {
       <section className="py-24 section-gradient">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <ScrollReveal>
+            <GSAPReveal>
               <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8">
                 The <span className="text-primary">Lore</span>
               </h2>
@@ -69,7 +69,7 @@ const Universe = () => {
               <p className="text-foreground/70 leading-relaxed">
                 Purchasing a digital key by world gives you access to that planet's subset of strains to sell internationally subject to the law in each jurisdiction. The creatures that hail from those worlds are the digital keys and each creature, without using traits, is a unique design that has been hand drawn by an EA artist.
               </p>
-            </ScrollReveal>
+            </GSAPReveal>
           </div>
         </div>
       </section>

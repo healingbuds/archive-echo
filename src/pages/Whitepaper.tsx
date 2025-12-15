@@ -1,4 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 
 const Whitepaper = () => {
   return (
@@ -6,7 +6,7 @@ const Whitepaper = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               <span className="text-primary">Whitepaper</span>
             </h1>
@@ -19,7 +19,7 @@ const Whitepaper = () => {
             >
               Download Whitepaper
             </a>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -27,7 +27,7 @@ const Whitepaper = () => {
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <ScrollReveal>
+            <GSAPReveal>
               <div className="feature-card">
                 <h2 className="font-display text-2xl text-foreground mb-6">Document Contents</h2>
                 <ul className="space-y-4 text-foreground/70">
@@ -54,9 +54,9 @@ const Whitepaper = () => {
                   </li>
                 </ul>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
 
-            <ScrollReveal delay={200}>
+            <GSAPReveal delay={200}>
               <div className="mt-8 feature-card">
                 <h2 className="font-display text-2xl text-foreground mb-6">Additional Resources</h2>
                 <div className="space-y-4">
@@ -71,7 +71,7 @@ const Whitepaper = () => {
                   </a>
                 </div>
               </div>
-            </ScrollReveal>
+            </GSAPReveal>
           </div>
         </div>
       </section>

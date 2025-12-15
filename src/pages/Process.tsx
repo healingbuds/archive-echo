@@ -1,4 +1,4 @@
-import ScrollReveal from '../components/ScrollReveal';
+import GSAPReveal from '../components/GSAPReveal';
 
 const Process = () => {
   const steps = [
@@ -39,14 +39,14 @@ const Process = () => {
       {/* Hero */}
       <section className="story-hero">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <ScrollReveal>
+          <GSAPReveal>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
               The <span className="text-primary">Process</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               From seed to sale, every step is tracked, verified, and secured on the blockchain.
             </p>
-          </ScrollReveal>
+          </GSAPReveal>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ const Process = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-4xl mx-auto space-y-12">
             {steps.map((item, index) => (
-              <ScrollReveal key={item.step} delay={index * 100}>
+              <GSAPReveal key={item.step} delay={index * 100}>
                 <div className="flex gap-6 md:gap-8 items-start">
                   <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-primary/40 flex items-center justify-center">
                     <span className="font-display text-xl text-primary">{item.step}</span>
@@ -65,7 +65,7 @@ const Process = () => {
                     <p className="text-foreground/60">{item.description}</p>
                   </div>
                 </div>
-              </ScrollReveal>
+              </GSAPReveal>
             ))}
           </div>
         </div>

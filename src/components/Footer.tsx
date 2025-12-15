@@ -112,7 +112,7 @@ const Footer = () => {
               <img 
                 src={voodooLogo} 
                 alt="Voodoo" 
-                className="h-5 w-auto"
+                className="h-8 w-auto"
               />
             </span>
           </div>

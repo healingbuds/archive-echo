@@ -1,0 +1,7 @@
+[build]
+  command = "node scripts/fetch-wayback-images.js drgreennft.netlify.app public/archived-assets && npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Optionally pin Node version if needed
+  # NODE_VERSION = "18"

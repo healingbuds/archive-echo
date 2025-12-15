@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import GSAPReveal from '@/components/GSAPReveal';
+import GSAPReveal, { TextRotateReveal } from '@/components/GSAPReveal';
 import ParallaxPlanet from '@/components/ParallaxPlanet';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -181,7 +181,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Content */}
-            <div className="text-center lg:text-left">
+            <TextRotateReveal className="text-center lg:text-left">
               <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-foreground mb-4 sm:mb-6 leading-[1.15]">
                 Join The <span className="text-primary">Revolution</span>
               </h1>
@@ -192,11 +192,11 @@ const Index = () => {
                 <Link to="/whitepaper" className="btn-primary text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider">
                   Whitepaper
                 </Link>
-                <Link to="/about-us" className="btn-outline text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider">
+              <Link to="/about-us" className="btn-outline text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider">
                   Overview
                 </Link>
               </div>
-            </div>
+            </TextRotateReveal>
 
             {/* Stacked Image Cards - Archive Key Cards */}
             <div className="relative h-[280px] sm:h-[360px] md:h-[450px] mt-8 lg:mt-0">
@@ -283,11 +283,11 @@ const Index = () => {
       {/* Full Screen Text Section */}
       <GSAPReveal className="py-12 sm:py-20 md:py-24 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+          <TextRotateReveal className="max-w-4xl mx-auto text-center">
             <h2 className="font-display text-base sm:text-xl md:text-2xl lg:text-3xl text-foreground leading-[1.6] sm:leading-[1.7]">
               Purchasing our Digital Key unlocks the potential for <span className="text-primary">substantial revenue growth</span> from the flourishing cannabis market. You gain exclusive access to our sophisticated platform designed for the legal trade of cannabis.
             </h2>
-          </div>
+          </TextRotateReveal>
         </div>
       </GSAPReveal>
 
@@ -295,14 +295,14 @@ const Index = () => {
       <GSAPReveal className="py-12 sm:py-16 md:py-20 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="text-center lg:text-left">
+            <TextRotateReveal className="text-center lg:text-left">
               <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 sm:mb-6">
                 Our <span className="text-primary">Digital Key</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-sm sm:text-base">
                 Dr. Green combines the Ethereum blockchain, NFT technology and physical cannabis into a solution that allows for accountable, traceable and verified cannabis transactions globally. Introducing the Dr. Green Digital Key. The cannabis industry lacks traceability, and this product allows regulators to safely open the doors to cannabis distribution. The digital key itself through the use of smart contracts provides our regulated license to the holder, empowering the digital key holder to trade cannabis legally anywhere that cannabis is accepted.
               </p>
-            </div>
+            </TextRotateReveal>
             <div className="relative mt-6 lg:mt-0">
               <img 
                 src={ethereumHq}
@@ -333,22 +333,22 @@ const Index = () => {
 
         <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            <div className="text-center md:text-left">
+            <TextRotateReveal className="text-center md:text-left">
               <h3 className="font-display text-lg sm:text-xl md:text-2xl text-foreground mb-3 sm:mb-4">
                 Genetic <span className="text-primary">Traceability</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-xs sm:text-sm">
                 At the seed stage of cultivation, we employ our own method of plant genome sequencing. The seeds genome is then encrypted into two key-pairs, a public key and a private key. The public key is written into a QR code that follows the seed through its lifecycle through to the end users packaging. Scanning this code will reveal its journey to the user and can be checked for authenticity against the private key we hold on our servers. Meaning the traceability is undeniable and verifiable.
               </p>
-            </div>
-            <div className="text-center md:text-left">
+            </TextRotateReveal>
+            <TextRotateReveal className="text-center md:text-left" delay={100}>
               <h3 className="font-display text-lg sm:text-xl md:text-2xl text-foreground mb-3 sm:mb-4">
                 Spoofing <span className="text-primary">Elimination</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-xs sm:text-sm">
                 Spoofing is the biggest problem in the cannabis industry. This is when illegal cannabis enters the legal supply chain. Currently there is no product offering to solve this problem. Perpetrators are not able to be caught as once the cannabis is inside legal packaging, it is just a plant in a bag. This new technology enables the cannabis to be verified, thus contributing to the elimination of black-market cannabis from the legal supply. Utilising the ETH block chain enables the decentralisation of our data.
               </p>
-            </div>
+            </TextRotateReveal>
           </div>
         </div>
       </GSAPReveal>
@@ -357,14 +357,14 @@ const Index = () => {
       <GSAPReveal className="py-10 sm:py-14 md:py-16 relative z-10 overflow-visible">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="text-center lg:text-left order-2 lg:order-1">
+            <TextRotateReveal className="text-center lg:text-left order-2 lg:order-1">
               <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground mb-4 sm:mb-6">
                 First-of-its-Kind <span className="text-primary">Integration</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-xs sm:text-sm">
                 Providing an ERC-721 token, we can build our cannabis licensing into the digital key and allow any holder to trade cannabis internationally, on chain, via an on-demand delivery platform. We and our partners are regulated, we actually deliver the cannabis to the consumer. The digital key holder never comes into contact with the product but is paid in ETH for creating those clients and orders. Traditionally, entering the cannabis market as an entrepreneur will cost upwards of $20M USD.
               </p>
-            </div>
+            </TextRotateReveal>
             <div className="relative order-1 lg:order-2">
               <img 
                 src={citraflora}
@@ -384,22 +384,22 @@ const Index = () => {
       <GSAPReveal className="py-10 sm:py-14 md:py-16 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            <div className="text-center md:text-left">
+            <TextRotateReveal className="text-center md:text-left">
               <h3 className="font-display text-lg sm:text-xl md:text-2xl text-foreground mb-3 sm:mb-4">
                 Digital <span className="text-primary">Universe</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-xs sm:text-sm">
                 We aim to build community and foster community collaboration internationally with our product. To achieve this, we have created a "Digital Universe" which can be found on our marketplace. This universe contains 20 planets, each with a unique and fun backstory about its culture and the inhabitants. The planets contain native strains of cannabis.
               </p>
-            </div>
-            <div className="text-center md:text-left">
+            </TextRotateReveal>
+            <TextRotateReveal className="text-center md:text-left" delay={100}>
               <h3 className="font-display text-lg sm:text-xl md:text-2xl text-foreground mb-3 sm:mb-4">
                 NFT <span className="text-primary">Artwork</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-xs sm:text-sm">
                 Purchasing a digital key by world gives you access to that planets subset of strains to sell internationally subject to the law in each jurisdiction. The creatures that hail from those worlds are the digital keys and each creature, without using traits, is a unique design that has been hand drawn by an EA artist. His unique style comes across in the 5,145 unique pieces we have created for this project.
               </p>
-            </div>
+            </TextRotateReveal>
           </div>
         </div>
       </GSAPReveal>
@@ -407,10 +407,10 @@ const Index = () => {
       {/* News Section */}
       <GSAPReveal className="py-12 sm:py-20 md:py-24 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 sm:mb-12 text-center md:text-left">
+          <TextRotateReveal className="mb-8 sm:mb-12 text-center md:text-left">
             <p className="text-[8px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] text-primary/80 uppercase mb-2">News / Updates</p>
             <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-foreground">Dr. Green In The Press</h3>
-          </div>
+          </TextRotateReveal>
 
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             {newsItems.map((item, idx) => (

@@ -62,38 +62,39 @@ const Index = () => {
     <div className="relative">
       {/* Hero Section */}
       <section className="hero-section min-h-screen relative">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${homeThumbnail})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background" />
+        {/* Background Video */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="w-full h-full object-cover"
+            poster={homeThumbnail}
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         
         {/* Hero Content */}
         <div className="container mx-auto px-4 md:px-8 relative z-10 pt-32 pb-16">
-          <div className="max-w-5xl mx-auto">
-            <div className="video-container aspect-video mb-12 overflow-hidden group cursor-pointer">
-              <div 
-                className="w-full h-full bg-cover bg-center flex items-center justify-center relative transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${homeThumbnail})` }}
-              >
-                <div className="absolute inset-0 bg-background/40 group-hover:bg-background/30 transition-colors duration-500" />
-                <div className="text-center relative z-10">
-                  <img src={videoLogo} alt="Dr. Green" className="w-40 h-40 mx-auto mb-6 drop-shadow-2xl" />
-                  <span className="text-xs md:text-sm tracking-[0.5em] text-foreground/70 uppercase font-medium">Digital Key</span>
-                  <p className="text-foreground/90 mt-3 text-lg md:text-xl tracking-wide font-light">ON-DEMAND CANNABIS</p>
-                  <div className="mt-8 w-16 h-16 mx-auto rounded-full border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary group-hover:scale-110 transition-all duration-300">
-                    <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-foreground/80 ml-1" />
-                  </div>
-                </div>
-              </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <img src={videoLogo} alt="Dr. Green" className="w-48 h-48 mx-auto mb-8 drop-shadow-2xl" />
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
+                Dr. Green <span className="text-primary text-glow">Digital Key</span>
+              </h1>
+              <p className="text-lg md:text-xl text-foreground/70 tracking-wide font-light uppercase">
+                Compliant Cannabis Fulfilment
+              </p>
             </div>
             
             {/* Scroll indicator */}
-            <div className="text-center opacity-0 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-[10px] tracking-[0.4em] text-foreground/40 uppercase">Scroll to explore</span>
-                <div className="w-px h-8 bg-gradient-to-b from-foreground/40 to-transparent animate-pulse" />
+            <div className="opacity-0 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
+              <div className="flex flex-col items-center gap-3">
+                <span className="text-[10px] tracking-[0.5em] text-foreground/40 uppercase">Scroll</span>
+                <div className="w-px h-12 bg-gradient-to-b from-foreground/40 to-transparent animate-pulse" />
               </div>
             </div>
           </div>

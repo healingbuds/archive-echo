@@ -18,6 +18,9 @@ import pinkPlanet from '@/assets/pinkplanet.png';
 import yellowPlanet from '@/assets/yellow-planet-new.png';
 import dgbanner from '@/assets/dgbanner.jpg';
 import capJpg from '@/assets/cap.jpg';
+import keyCardSp2 from '@/assets/key-card-sp2.jpg';
+import keyCardGs13 from '@/assets/key-card-gs13.jpg';
+import keyCardP20 from '@/assets/key-card-p20.jpg';
 
 // NFT slides - Archive authentic assets
 import nftArchive1 from '@/assets/nft-archive-1.png';
@@ -157,29 +160,29 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Stacked Image Cards - Matching Archive Layout */}
+            {/* Stacked Image Cards - Archive Key Cards */}
             <div className="relative h-[400px] md:h-[450px]">
-              {/* Top left card */}
+              {/* Top left card - Platinum Key */}
               <div className="absolute left-[10%] top-0 w-[180px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
                 <img 
-                  src={homeThumbnail} 
-                  alt="" 
+                  src={keyCardSp2} 
+                  alt="Dr. Green Platinum Key" 
                   className="w-full h-[140px] md:h-[170px] object-cover grayscale"
                 />
               </div>
-              {/* Middle center card */}
+              {/* Middle center card - Gold Key */}
               <div className="absolute left-[25%] top-[30%] w-[200px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 shadow-lg z-10">
                 <img 
-                  src={dgbanner} 
-                  alt="" 
+                  src={keyCardGs13} 
+                  alt="Dr. Green Gold Key" 
                   className="w-full h-[160px] md:h-[200px] object-cover grayscale"
                 />
               </div>
-              {/* Right side card */}
+              {/* Right side card - Digital Key */}
               <div className="absolute right-0 top-[15%] w-[160px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 shadow-lg">
                 <img 
-                  src={capJpg} 
-                  alt="" 
+                  src={keyCardP20} 
+                  alt="Dr. Green Digital Key" 
                   className="w-full h-[280px] md:h-[340px] object-cover grayscale"
                 />
               </div>

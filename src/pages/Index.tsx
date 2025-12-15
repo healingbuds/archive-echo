@@ -19,18 +19,19 @@ import yellowPlanet from '@/assets/yellow-planet-new.png';
 import dgbanner from '@/assets/dgbanner.jpg';
 import capJpg from '@/assets/cap.jpg';
 
-// NFT slides
-import nftSlide1 from '@/assets/nft-slide-1.png';
-import nftSlide2 from '@/assets/nft-slide-2.png';
-import nftSlide3 from '@/assets/nft-slide-3.png';
-import nftSlide4 from '@/assets/nft-slide-4.png';
-import nftSlide5 from '@/assets/nft-slide-5.png';
-import nftSlide6 from '@/assets/nft-slide-6.png';
-import nftChar1 from '@/assets/nft-char-1.png';
-import nftChar2 from '@/assets/nft-char-2.png';
-import nftChar3 from '@/assets/nft-char-3.png';
-import nftChar4 from '@/assets/nft-char-4.png';
-import nftChar5 from '@/assets/nft-char-5.png';
+// NFT slides - Archive authentic assets
+import nftArchive1 from '@/assets/nft-archive-1.png';
+import nftArchive2 from '@/assets/nft-archive-2.png';
+import nftArchive3 from '@/assets/nft-archive-3.png';
+import nftArchive4 from '@/assets/nft-archive-4.png';
+import nftArchive5 from '@/assets/nft-archive-5.png';
+import nftArchive6 from '@/assets/nft-archive-6.png';
+import nftArchive7 from '@/assets/nft-archive-7.png';
+import nftArchive8 from '@/assets/nft-archive-8.png';
+import nftArchive9 from '@/assets/nft-archive-9.png';
+import nftArchive10 from '@/assets/nft-archive-10.png';
+import nftArchive11 from '@/assets/nft-archive-11.png';
+import nftArchive12 from '@/assets/nft-archive-12.png';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -40,7 +41,7 @@ const Index = () => {
     setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   }, []);
 
-  const nftSlides = [nftSlide1, nftSlide2, nftSlide3, nftSlide4, nftSlide5, nftSlide6, nftChar1, nftChar2, nftChar3, nftChar4, nftChar5];
+  const nftSlides = [nftArchive1, nftArchive2, nftArchive3, nftArchive4, nftArchive5, nftArchive6, nftArchive7, nftArchive8, nftArchive9, nftArchive10, nftArchive11, nftArchive12];
 
   const newsItems = [
     {

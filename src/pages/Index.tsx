@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import GSAPReveal from '@/components/GSAPReveal';
 
 // Archive assets
 import homeThumbnail from '@/assets/home-thumbnail.jpg';
@@ -30,45 +31,6 @@ import nftChar2 from '@/assets/nft-char-2.png';
 import nftChar3 from '@/assets/nft-char-3.png';
 import nftChar4 from '@/assets/nft-char-4.png';
 import nftChar5 from '@/assets/nft-char-5.png';
-
-// Reveal animation hook
-const useReveal = () => {
-  const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -80px 0px' }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, isVisible };
-};
-
-// Reveal wrapper component
-const Reveal = ({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) => {
-  const { ref, isVisible } = useReveal();
-  return (
-    <section
-      ref={ref}
-      className={`${className} transition-all duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </section>
-  );
-};
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -146,7 +108,7 @@ const Index = () => {
       </section>
 
       {/* Join The Revolution Section */}
-      <Reveal className="py-24 md:py-32 relative z-10">
+      <GSAPReveal className="py-24 md:py-32 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Content */}
@@ -178,10 +140,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* Countdown Section */}
-      <Reveal className="py-24 relative z-10 overflow-visible">
+      <GSAPReveal className="py-24 relative z-10 overflow-visible">
         {/* Decorative Planets */}
         <img src={aromaticaCountdown} alt="" className="absolute -right-10 top-0 w-24 md:w-40 opacity-80 pointer-events-none" />
         <img src={cannabiscusCountdown} alt="" className="absolute -left-16 top-1/4 w-32 md:w-48 opacity-70 pointer-events-none" />
@@ -190,7 +152,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="countdown-card max-w-4xl mx-auto py-12 px-8 text-center">
             <h2 className="font-display text-2xl md:text-3xl text-foreground mb-2">
-              PUBLIC MINT <span className="text-primary font-semibold">LAUNCHES</span> IN:
+              PUBLIC MINT <span className="text-primary">LAUNCHES</span> IN:
             </h2>
             
             <div className="grid grid-cols-4 gap-4 md:gap-8 my-10">
@@ -210,14 +172,14 @@ const Index = () => {
             </div>
 
             <h3 className="text-sm md:text-base text-foreground/70">
-              Greenlist mint will be on <span className="text-primary font-semibold">December 11th 4pm UTC</span>
+              Greenlist mint will be on <span className="text-primary">December 11th 4pm UTC</span>
             </h3>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* YouTube Preview Section */}
-      <Reveal className="py-16 relative z-10">
+      <GSAPReveal className="py-16 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="aspect-video max-w-5xl mx-auto rounded-lg overflow-hidden bg-card border border-border/30">
             <iframe
@@ -229,10 +191,10 @@ const Index = () => {
             />
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* Full Screen Text Section */}
-      <Reveal className="py-24 md:py-32 relative z-10">
+      <GSAPReveal className="py-24 md:py-32 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground leading-relaxed">
@@ -240,15 +202,15 @@ const Index = () => {
             </h2>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* Our Digital Key Section */}
-      <Reveal className="py-24 relative z-10">
+      <GSAPReveal className="py-24 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8">
-                Our <span className="text-primary font-semibold">Digital Key</span>
+                Our <span className="text-primary">Digital Key</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed text-lg">
                 Dr. Green combines the Ethereum blockchain, NFT technology and physical cannabis into a solution that allows for accountable, traceable and verified cannabis transactions globally. Introducing the Dr. Green Digital Key. The cannabis industry lacks traceability, and this product allows regulators to safely open the doors to cannabis distribution. The digital key itself through the use of smart contracts provides our regulated license to the holder, empowering the digital key holder to trade cannabis legally anywhere that cannabis is accepted.
@@ -274,10 +236,10 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* Genetic Traceability & Spoofing Section */}
-      <Reveal className="py-24 relative z-10 overflow-visible">
+      <GSAPReveal className="py-24 relative z-10 overflow-visible">
         {/* Planet decorations */}
         <img src={sweetNirvana} alt="" className="absolute left-0 top-0 w-32 md:w-48 opacity-70 pointer-events-none" />
         <img src={cannavariaWeb} alt="" className="absolute right-0 top-1/3 w-40 md:w-64 opacity-60 pointer-events-none" />
@@ -286,7 +248,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6">
-                Genetic <span className="text-primary font-semibold">Traceability</span>
+                Genetic <span className="text-primary">Traceability</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed">
                 At the seed stage of cultivation, we employ our own method of plant genome sequencing. The seeds genome is then encrypted into two key-pairs, a public key and a private key. The public key is written into a QR code that follows the seed through its lifecycle through to the end users packaging. Scanning this code will reveal its journey to the user and can be checked for authenticity against the private key we hold on our servers. Meaning the traceability is undeniable and verifiable.
@@ -294,7 +256,7 @@ const Index = () => {
             </div>
             <div>
               <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6">
-                Spoofing <span className="text-primary font-semibold">Elimination</span>
+                Spoofing <span className="text-primary">Elimination</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed">
                 Spoofing is the biggest problem in the cannabis industry. This is when illegal cannabis enters the legal supply chain. Currently there is no product offering to solve this problem. Perpetrators are not able to be caught as once the cannabis is inside legal packaging, it is just a plant in a bag. This new technology enables the cannabis to be verified, thus contributing to the elimination of black-market cannabis from the legal supply. Utilising the ETH block chain enables the decentralisation of our data.
@@ -302,15 +264,15 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* First-of-its-Kind Integration */}
-      <Reveal className="py-24 relative z-10 overflow-visible">
+      <GSAPReveal className="py-24 relative z-10 overflow-visible">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <h3 className="font-display text-3xl md:text-4xl text-foreground mb-8">
-                First-of-its-Kind <span className="text-primary font-semibold">Integration</span>
+                First-of-its-Kind <span className="text-primary">Integration</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed">
                 Providing an ERC-721 token, we can build our cannabis licensing into the digital key and allow any holder to trade cannabis internationally, on chain, via an on-demand delivery platform. We and our partners are regulated, we actually deliver the cannabis to the consumer. The digital key holder never comes into contact with the product but is paid in ETH for creating those clients and orders. Traditionally, entering the cannabis market as an entrepreneur will cost upwards of $20M USD.
@@ -329,15 +291,15 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* Digital Universe & NFT Artwork */}
-      <Reveal className="py-24 relative z-10">
+      <GSAPReveal className="py-24 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6">
-                Digital <span className="text-primary font-semibold">Universe</span>
+                Digital <span className="text-primary">Universe</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed">
                 We aim to build community and foster community collaboration internationally with our product. To achieve this, we have created a "Digital Universe" which can be found on our marketplace. This universe contains 20 planets, each with a unique and fun backstory about its culture and the inhabitants. The planets contain native strains of cannabis.
@@ -345,7 +307,7 @@ const Index = () => {
             </div>
             <div>
               <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6">
-                NFT <span className="text-primary font-semibold">Artwork</span>
+                NFT <span className="text-primary">Artwork</span>
               </h3>
               <p className="text-foreground/60 leading-relaxed">
                 Purchasing a digital key by world gives you access to that planets subset of strains to sell internationally subject to the law in each jurisdiction. The creatures that hail from those worlds are the digital keys and each creature, without using traits, is a unique design that has been hand drawn by an EA artist. His unique style comes across in the 5,145 unique pieces we have created for this project.
@@ -353,10 +315,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
 
       {/* News Section */}
-      <Reveal className="py-24 relative z-10">
+      <GSAPReveal className="py-24 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="mb-12">
             <p className="text-[10px] tracking-[0.4em] text-primary/80 uppercase mb-2">News / Updates</p>
@@ -393,7 +355,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </Reveal>
+      </GSAPReveal>
     </div>
   );
 };

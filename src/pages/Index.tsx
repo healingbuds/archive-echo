@@ -18,6 +18,15 @@ import planetViridescia from '@/assets/planet-viridescia.svg';
 import planetDulceterra from '@/assets/planet-dulceterra.svg';
 import planet4 from '@/assets/planet-4.svg';
 import planet5 from '@/assets/planet-5.svg';
+import fallingStar from '@/assets/falling-star.gif';
+import planet1 from '@/assets/planet-1.svg';
+import planet2 from '@/assets/planet-2.svg';
+import planet9 from '@/assets/planet-9.svg';
+import planet10 from '@/assets/planet-10.svg';
+import nft192 from '@/assets/nft-192.png';
+import nft326 from '@/assets/nft-326.png';
+import nft841 from '@/assets/nft-841.png';
+import nft477 from '@/assets/nft-477.png';
 
 const Index = () => {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -62,6 +71,13 @@ const Index = () => {
     <div className="relative">
       {/* Hero Section */}
       <section className="hero-section min-h-screen relative">
+        {/* Falling Star Animation */}
+        <img 
+          src={fallingStar} 
+          alt="" 
+          className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-[1] opacity-60"
+        />
+        
         {/* Background Video */}
         <div className="absolute inset-0 overflow-hidden">
           <video 
@@ -78,20 +94,20 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         
         {/* Hero Content */}
-        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-32 pb-16">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-32 pb-16 min-h-screen flex flex-col justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
-              <img src={videoLogo} alt="Dr. Green" className="w-48 h-48 mx-auto mb-8 drop-shadow-2xl" />
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
-                Dr. Green <span className="text-primary text-glow">Digital Key</span>
+              <img src={videoLogo} alt="Dr. Green" className="w-40 h-40 mx-auto mb-6 drop-shadow-2xl" />
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground mb-6 leading-[1.1]">
+                Purchase a Dr Green <span className="text-primary text-glow">Digital Key</span> to start trading cannabis worldwide
               </h1>
-              <p className="text-lg md:text-xl text-foreground/70 tracking-wide font-light uppercase">
-                Compliant Cannabis Fulfilment
+              <p className="text-sm md:text-base text-foreground/60 tracking-[0.3em] font-light uppercase mt-8">
+                On-Demand Cannabis
               </p>
             </div>
             
             {/* Scroll indicator */}
-            <div className="opacity-0 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
+            <div className="opacity-0 animate-fade-in mt-16" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               <div className="flex flex-col items-center gap-3">
                 <span className="text-[10px] tracking-[0.5em] text-foreground/40 uppercase">Scroll</span>
                 <div className="w-px h-12 bg-gradient-to-b from-foreground/40 to-transparent animate-pulse" />

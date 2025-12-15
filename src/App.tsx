@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AgeGate from "./components/AgeGate";
+import BookWebinarButton from "./components/BookWebinarButton";
 import Particles from "./components/Particles";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
@@ -56,6 +57,7 @@ const App = () => {
           <div className={`min-h-screen bg-background ${!ageVerified ? 'overflow-hidden h-screen' : ''}`}>
             <Particles />
             <Header />
+            <BookWebinarButton />
             <main>
               <Routes>
                 <Route path="/" element={<Index />} />

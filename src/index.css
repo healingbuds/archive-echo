@@ -446,12 +446,10 @@
     animation: scroll 20s linear infinite;
   }
 
-  /* Scroll wheel animation - Archive exact: moves down, fades, resets */
+  /* Scroll wheel animation - Archive exact: smooth continuous scroll down */
   @keyframes scroll-wheel {
     0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    50% { opacity: 0; transform: translateX(-50%) translateY(10px); }
-    51% { opacity: 0; transform: translateX(-50%) translateY(0); }
-    100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(8px); }
   }
 
   /* Starfield animations */

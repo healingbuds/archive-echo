@@ -115,13 +115,17 @@ const NFTCharacterSlider = ({ className = '' }: NFTCharacterSliderProps) => {
         {allSlides.map((img, idx) => (
           <div 
             key={idx} 
-            className="nft-slide flex-shrink-0"
+            className="nft-slide flex-shrink-0 group"
             style={{ width: 'clamp(76px, 15vw, 190px)' }}
           >
             <img 
               src={img} 
               alt="" 
-              className="w-full h-auto grayscale"
+              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-500"
+              style={{
+                maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)'
+              }}
               loading="lazy"
               width={304}
               height={440}

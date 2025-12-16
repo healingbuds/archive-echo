@@ -73,7 +73,7 @@ const PartnersSection = () => {
                 <img 
                   src={voodooLogo} 
                   alt="Voodoo" 
-                  className="h-3 sm:h-3.5 md:h-4 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300"
+                  className="h-4 sm:h-5 md:h-6 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300"
                 />
               ) : (
                 <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium whitespace-nowrap">

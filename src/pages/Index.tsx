@@ -203,7 +203,7 @@ const Index = () => {
             {/* Stacked Image Cards - Archive Key Cards */}
             <div className="relative h-[280px] sm:h-[360px] md:h-[450px] mt-8 lg:mt-0">
               {/* Top left card - Platinum Key */}
-              <div className="animate-item absolute left-[5%] sm:left-[10%] top-0 w-[120px] sm:w-[160px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="animate-item absolute left-[5%] sm:left-[10%] top-0 w-[120px] sm:w-[160px] md:w-[220px] rounded-xl overflow-hidden border border-primary/30 hover:scale-[1.03] transition-all duration-500 ease-out">
                 <img 
                   src={keyCardSp2} 
                   alt="Dr. Green Platinum Key" 
@@ -211,7 +211,7 @@ const Index = () => {
                 />
               </div>
               {/* Middle center card - Gold Key */}
-              <div className="animate-item absolute left-[20%] sm:left-[25%] top-[25%] sm:top-[30%] w-[140px] sm:w-[180px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 shadow-lg z-10 hover:scale-105 transition-transform duration-300">
+              <div className="animate-item absolute left-[20%] sm:left-[25%] top-[25%] sm:top-[30%] w-[140px] sm:w-[180px] md:w-[260px] rounded-xl overflow-hidden border border-primary/30 z-10 hover:scale-[1.03] transition-all duration-500 ease-out">
                 <img 
                   src={keyCardGs13} 
                   alt="Dr. Green Gold Key" 
@@ -219,7 +219,7 @@ const Index = () => {
                 />
               </div>
               {/* Right side card - Digital Key */}
-              <div className="animate-item absolute right-[5%] sm:right-0 top-[10%] sm:top-[15%] w-[110px] sm:w-[150px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="animate-item absolute right-[5%] sm:right-0 top-[10%] sm:top-[15%] w-[110px] sm:w-[150px] md:w-[200px] rounded-xl overflow-hidden border border-primary/30 hover:scale-[1.03] transition-all duration-500 ease-out">
                 <img 
                   src={keyCardP20} 
                   alt="Dr. Green Digital Key" 

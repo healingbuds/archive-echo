@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import voodooLogo from '@/assets/voodoo-logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,10 +69,17 @@ const PartnersSection = () => {
               key={partner}
               className="partner-item text-foreground/30 hover:text-foreground/50 transition-colors duration-300 px-2"
             >
-              {/* ARCHIVE-MISSING: Logo placeholder */}
-              <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                {partner}
-              </span>
+              {partner === 'VOODOO' ? (
+                <img 
+                  src={voodooLogo} 
+                  alt="Voodoo" 
+                  className="h-6 sm:h-7 md:h-8 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300"
+                />
+              ) : (
+                <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                  {partner}
+                </span>
+              )}
             </div>
           ))}
         </div>

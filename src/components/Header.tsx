@@ -3,7 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import drGreenLogo from '@/assets/logo-new.svg';
 
-const navItems = [
+// External marketplace URL
+const MARKETPLACE_URL = 'https://marketplace.drgreennft.com';
+
+type NavItem = {
+  label: string;
+  path: string;
+  external?: boolean;
+  dropdown?: NavItem[];
+};
+
+const navItems: NavItem[] = [
   { label: 'HOME', path: '/' },
   { 
     label: 'ABOUT', 
@@ -11,6 +21,7 @@ const navItems = [
     dropdown: [
       { label: 'About Us', path: '/about-us' },
       { label: 'Our Story', path: '/our-story' },
+      { label: 'Our Strains', path: '/our-strains' },
     ]
   },
   { 
@@ -18,8 +29,10 @@ const navItems = [
     path: '/digital-keys',
     dropdown: [
       { label: 'Digital Keys', path: '/digital-keys' },
-      { label: 'Our Strains', path: '/our-strains' },
+      { label: 'Universe', path: '/universe' },
       { label: 'NFTs', path: '/nfts' },
+      { label: 'Planets', path: `${MARKETPLACE_URL}/planets`, external: true },
+      { label: 'Marketplace', path: `${MARKETPLACE_URL}/marketplace`, external: true },
     ]
   },
   { 
@@ -33,17 +46,14 @@ const navItems = [
   },
   { 
     label: 'GET INVOLVED', 
-    path: '/universe',
+    path: '/the-process',
     dropdown: [
-      { label: 'Universe', path: '/universe' },
       { label: 'The Process', path: '/the-process' },
       { label: 'Contact', path: '/contact' },
+      { label: 'Mint Key', path: MARKETPLACE_URL, external: true },
     ]
   },
 ];
-
-// External marketplace URL
-const MARKETPLACE_URL = 'https://marketplace.drgreennft.com';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,13 +115,25 @@ const Header = () => {
                   {item.dropdown && (
                     <div className="dropdown-menu">
                       {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.path}
-                          to={subItem.path}
-                          className="dropdown-item"
-                        >
-                          {subItem.label}
-                        </Link>
+                        subItem.external ? (
+                          <a
+                            key={subItem.path}
+                            href={subItem.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="dropdown-item"
+                          >
+                            {subItem.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className="dropdown-item"
+                          >
+                            {subItem.label}
+                          </Link>
+                        )
                       ))}
                     </div>
                   )}
@@ -158,14 +180,27 @@ const Header = () => {
                 {item.dropdown && (
                   <div className="ml-4 mt-2 flex flex-col gap-2">
                     {item.dropdown.map((subItem) => (
-                      <Link
-                        key={subItem.path}
-                        to={subItem.path}
-                        className="text-lg text-foreground/60 hover:text-primary transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {subItem.label}
-                      </Link>
+                      subItem.external ? (
+                        <a
+                          key={subItem.path}
+                          href={subItem.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg text-foreground/60 hover:text-primary transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subItem.label}
+                        </a>
+                      ) : (
+                        <Link
+                          key={subItem.path}
+                          to={subItem.path}
+                          className="text-lg text-foreground/60 hover:text-primary transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subItem.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}

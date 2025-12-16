@@ -452,6 +452,21 @@
     100% { opacity: 0; transform: translateX(-50%) translateY(8px); }
   }
 
+  /* Voodoo red glow pulse */
+  @keyframes voodoo-pulse {
+    0%, 100% { 
+      filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 0, 0, 0.4));
+    }
+    50% { 
+      filter: drop-shadow(0 0 16px rgba(255, 0, 0, 1)) drop-shadow(0 0 30px rgba(255, 0, 0, 0.7));
+    }
+  }
+
+  .voodoo-logo-container:hover .voodoo-logo {
+    animation: voodoo-pulse 1.5s ease-in-out infinite;
+    brightness: 1.1;
+  }
+
   /* Starfield animations */
   .stars, .stars1, .stars2 {
     position: absolute;

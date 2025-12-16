@@ -106,16 +106,13 @@ const Footer = () => {
             2024 © Dr. Green NFT
           </p>
 
-          <div className="flex items-center text-xs text-foreground/40 group cursor-pointer">
+          <div className="voodoo-logo-container flex items-center text-xs text-foreground/40 cursor-pointer">
             <p>Website designed and developed by</p>
-            <span className="opacity-60 group-hover:opacity-100 transition-all duration-300">
+            <span className="opacity-60 hover:opacity-100 transition-all duration-300">
               <img 
                 src={voodooLogo} 
                 alt="Voodoo" 
-                className="h-16 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)] group-hover:brightness-110"
-                style={{ filter: 'var(--voodoo-filter, none)' }}
-                onMouseEnter={(e) => e.currentTarget.style.setProperty('--voodoo-filter', 'drop-shadow(0 0 12px #ff0000) drop-shadow(0 0 20px #ff0000)')}
-                onMouseLeave={(e) => e.currentTarget.style.setProperty('--voodoo-filter', 'none')}
+                className="voodoo-logo h-16 w-auto transition-all duration-300"
               />
             </span>
           </div>

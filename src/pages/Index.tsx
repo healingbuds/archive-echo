@@ -241,27 +241,27 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="countdown-card max-w-3xl mx-auto py-6 sm:py-10 px-4 sm:px-6 text-center">
             <h2 className="font-display text-base sm:text-xl md:text-2xl text-foreground mb-1">
-              PUBLIC MINT <span className="text-primary">LAUNCHES</span> IN:
+              PUBLIC MINT <span className="text-primary">LAUNCHED</span>
             </h2>
             
             <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-6 my-6 sm:my-8">
               {[
-                { value: countdown.days, label: 'DAYS' },
-                { value: countdown.hours, label: 'HOURS' },
-                { value: countdown.minutes, label: 'MINUTES' },
-                { value: countdown.seconds, label: 'SCONDS' },
+                { value: '—', label: 'DAYS' },
+                { value: '—', label: 'HOURS' },
+                { value: '—', label: 'MINUTES' },
+                { value: '—', label: 'SECONDS' },
               ].map((item) => (
                 <div key={item.label} className="text-center">
                   <p className="text-[7px] sm:text-[9px] tracking-wider text-foreground/50 mb-0.5 sm:mb-1">{item.label}</p>
                   <p className="font-display text-xl sm:text-3xl md:text-5xl text-foreground/20">
-                    {String(item.value).padStart(2, '0')}
+                    {item.value}
                   </p>
                 </div>
               ))}
             </div>
 
             <h3 className="text-[10px] sm:text-xs md:text-sm text-foreground/70">
-              Greenlist mint will be on <span className="text-primary font-medium">December 11th 4pm UTC</span>
+              Greenlist mint launched <span className="text-primary font-medium">December 11th 2024</span>
             </h3>
           </div>
         </div>

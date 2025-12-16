@@ -14,7 +14,7 @@ const partners = [
   'INFARMED',
   'UPCANN',
   'CLOVERLEAF',
-  'ALPHAGEEK',
+  'VOODOO',
   'LHI CONSULTING'
 ];
 

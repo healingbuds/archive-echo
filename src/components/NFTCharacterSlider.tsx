@@ -121,7 +121,7 @@ const NFTCharacterSlider = ({ className = '' }: NFTCharacterSliderProps) => {
             <img 
               src={img} 
               alt="" 
-              className="w-full h-auto"
+              className="w-full h-auto grayscale"
               loading="lazy"
               width={304}
               height={440}

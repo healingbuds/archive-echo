@@ -171,7 +171,7 @@ const Index = () => {
           {/* Scroll indicator */}
           <div className="scroll-indicator mt-10 sm:mt-16">
             <div className="mouse w-5 h-8 sm:w-6 sm:h-10 border-2 border-foreground/40 rounded-full mx-auto mb-2 relative">
-              <div className="wheel w-1 h-1.5 sm:h-2 bg-foreground/60 rounded-full absolute left-1/2 top-1.5 sm:top-2 -translate-x-1/2 animate-[scroll-wheel_1.5s_ease-in-out_infinite]" />
+              <div className="wheel w-1 h-1.5 sm:h-2 bg-foreground/60 rounded-full absolute left-1/2 top-1.5 sm:top-2 -translate-x-1/2 animate-[scroll-wheel_2.5s_ease-in-out_infinite]" />
             </div>
             <p className="text-[8px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] text-foreground/50 uppercase">SCROLL</p>
           </div>

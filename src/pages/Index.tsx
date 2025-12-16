@@ -240,29 +240,27 @@ const Index = () => {
 
         <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="countdown-card max-w-3xl mx-auto py-6 sm:py-10 px-4 sm:px-6 text-center">
-            <h2 className="font-display text-base sm:text-xl md:text-2xl text-foreground mb-1">
-              PUBLIC MINT <span className="text-primary">LAUNCHED</span>
+            <h2 className="font-display text-base sm:text-xl md:text-2xl text-foreground mb-4">
+              DR. GREEN DIGITAL KEYS ARE <span className="text-primary">NOW LIVE</span>
             </h2>
             
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-6 my-6 sm:my-8">
-              {[
-                { value: '—', label: 'DAYS' },
-                { value: '—', label: 'HOURS' },
-                { value: '—', label: 'MINUTES' },
-                { value: '—', label: 'SECONDS' },
-              ].map((item) => (
-                <div key={item.label} className="text-center">
-                  <p className="text-[7px] sm:text-[9px] tracking-wider text-foreground/50 mb-0.5 sm:mb-1">{item.label}</p>
-                  <p className="font-display text-xl sm:text-3xl md:text-5xl text-foreground/20">
-                    {item.value}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="text-foreground/60 text-xs sm:text-sm md:text-base mb-6 max-w-lg mx-auto">
+              Join the world's first legal cannabis on-demand delivery business. Secure your Digital Key and unlock access to the future of cannabis trade.
+            </p>
 
-            <h3 className="text-[10px] sm:text-xs md:text-sm text-foreground/70">
-              Greenlist mint launched <span className="text-primary font-medium">December 11th 2024</span>
-            </h3>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              <a 
+                href="https://marketplace.drgreennft.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-primary text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider"
+              >
+                View Collection
+              </a>
+              <Link to="/digital-keys" className="btn-outline text-[10px] sm:text-xs px-4 sm:px-6 py-2 sm:py-2.5 uppercase tracking-wider">
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
       </GSAPReveal>
